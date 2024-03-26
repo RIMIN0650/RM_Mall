@@ -2,6 +2,32 @@
 
 #wrap{
 	width:1200px;
-	height:800px;
 	margin:0 auto;
+}
+
+header{
+	height:150px;
+}
+
+.logo{
+	height:150px;
+	width:200px;
+}
+.title{
+	height:150px;
+	width:1000px;
+	padding-left:230px;
+}
+section{
+	height:700px;
+}
+
+.input-form{
+	width:300px;
+}
+
+footer{
+	width:1200px;
+	height:100px;
+	background-color:#E6FFE6;
 }

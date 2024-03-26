@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,20 +11,31 @@
 </head>
 <body>
 
-	<div id="wrap" class="bg-dark">
-		<header>
-		
-		</header>
-		
-		<body>
-			<section>
-			
-			</section>	
-		</body>
-		
-		<footer>
-		
-		</footer>
+	<div id="wrap">
+		<c:import url="/WEB-INF/jsp/include/header.jsp" />
+		<section class="d-flex justify-content-center">
+			<!-- input form -->
+			<div class="input-form my-5">
+				<h1 class="text-center mb-3">회원가입</h1>
+				<div class="d-flex justify-content-between align-items-start">	
+					<input type="text" class="form-control col-8 mb-3" placeholder="id">
+					<button type="button" class="btn btn-info">중복확인</button>
+				</div>
+				<input type="password" class="form-control mb-3" placeholder="password">
+				<input type="password" class="form-control mb-3" placeholder="check-password">
+				<input type="text" class="form-control mb-3" placeholder="name">
+				<input type="text" class="form-control mb-3" placeholder="e-mail">
+				<input type="text" class="form-control mb-3" placeholder="address">
+				<input type="text" class="form-control mb-3" placeholder="phoneNumber">
+				<button type="button" class="btn btn-success col-12">회원가입</button>
+				<div class="text-center pt-5">
+					또는 &nbsp;<a href="#"> 로그인</a>
+				</div>
+			</div>
+			<!-- /input form -->
+		</section>	
+		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
+
 	
 	
 	</div>
