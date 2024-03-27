@@ -29,7 +29,7 @@
 				<input type="text" class="form-control mb-3" placeholder="phoneNumber" id="phoneNumber">
 				<button type="button" class="btn btn-success col-12" id="joinBtn">회원가입</button>
 				<div class="text-center pt-5">
-					또는 &nbsp;<a href="#"> 로그인</a>
+					또는 &nbsp;<a href="#"> 메인 페이지로</a>
 				</div>
 			</div>
 			<!-- /input form -->
@@ -44,8 +44,30 @@
 <script>
 	$(document).ready(function(){
 		
+		
+		
+		
 		$("#checkDup").on("click",function(){
-			alert("checkDup");
+			let id = $("#identifier").val();
+			
+			if(id ==""){
+				alert("Id를 입력하세요");
+				return;
+			}
+			$.ajax({
+				type:"get"
+				, url:"/user/duplicate-id"
+				, data:{"loginId":id}
+				, success:function(data){
+						if(data.isDuplicateId){
+							alert("중복된 아이디.");
+						} else {
+							alert("사용 가능한 아이디.");
+						}
+					}
+				
+				
+			});
 			
 		});
 		

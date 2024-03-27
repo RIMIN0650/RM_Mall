@@ -12,7 +12,7 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	
+	// 회원가입
 	public User addUser(String loginId
 					, String password
 					, String name
@@ -29,11 +29,18 @@ public class UserService {
 					.build();
 		
 		return userRepository.save(user);
-		
-		
-		
 	}
 	
 	
+	// id 중복 확인
+	public boolean isDuplicateId(String loginId) {
+		int count = userRepository.countByLoginId(loginId);
+		
+		if(count != 0) { // 아이디 중복 아님
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 }
