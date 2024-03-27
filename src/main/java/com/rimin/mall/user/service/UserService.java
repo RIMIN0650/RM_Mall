@@ -18,8 +18,7 @@ public class UserService {
 					, String name
 					, String email
 					, String phoneNumber
-					, String address
-					, String status) {
+					, String address) {
 		User user = User.builder()
 					.loginId(loginId)
 					.password(password)
@@ -27,7 +26,6 @@ public class UserService {
 					.email(email)
 					.phoneNumber(phoneNumber)
 					.address(address)
-					.status(status)
 					.build();
 		
 		return userRepository.save(user);

@@ -30,7 +30,6 @@ public class User {
 	@Column(name="loginId")
 	private String loginId;
 	private String password;
-	private String status;
 	private String name;
 	private String email;
 	private String address;

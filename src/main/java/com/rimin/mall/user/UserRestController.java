@@ -26,10 +26,9 @@ public class UserRestController {
 			, @RequestParam("name") String name
 			, @RequestParam("email") String email
 			, @RequestParam("phoneNumber") String phoneNumber
-			, @RequestParam("address") String address
-			, @RequestParam("status") String status) {
+			, @RequestParam("address") String address) {
 		
-		User user = userService.addUser(loginId, password, name, email, phoneNumber, address, status);
+		User user = userService.addUser(loginId, password, name, email, phoneNumber, address);
 		
 		Map<String, String> resultMap = new HashMap<>();
 		
