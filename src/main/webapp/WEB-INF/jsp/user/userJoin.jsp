@@ -44,7 +44,12 @@
 <script>
 	$(document).ready(function(){
 		
+		let checkDup;
+		let checkIdBtn = 0; // 중복확인 판단 여부 확인
 		
+		$("#identifier").on("input",function(){
+			checkIdBtn = 0;
+		});
 		
 		
 		$("#checkDup").on("click",function(){
@@ -59,14 +64,15 @@
 				, url:"/user/duplicate-id"
 				, data:{"loginId":id}
 				, success:function(data){
+						checkIdBtn = 1;
 						if(data.isDuplicateId){
+							checkDup = false; // 아래 회원가입에서 못 넘어가도록
 							alert("중복된 아이디.");
 						} else {
+							checkDup = true; // 아래 회원가입에서 넘어가도록
 							alert("사용 가능한 아이디.");
 						}
 					}
-				
-				
 			});
 			
 		});
@@ -116,11 +122,15 @@
 					, url:"/user/join"
 					, data:{"loginId":id, "password":pw, "name":name, "email":email, "phoneNumber":phoneNumber, "address":address }
 					, success:function(data){
-						if(data.result == "success"){
-							alert("회원가입 성공 메인 페이지로 이동합니다");
-							location.reload();
+						if(checkIdBtn !=0 ){
+							if(data.result == "success" && (checkDup)){
+								alert("회원가입 성공 메인 페이지로 이동합니다");
+								location.reload();
+							} else {
+								alert("회원가입 실패! 아이디를 확인하세요.");
+							}
 						} else {
-							alert("회원가입 실패");
+							alert("id 중복을 확인하세요");
 						}
 					}
 					,error:function(){
