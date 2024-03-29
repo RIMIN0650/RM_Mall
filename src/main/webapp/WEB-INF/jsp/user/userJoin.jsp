@@ -17,7 +17,7 @@
 			<!-- input form -->
 			<div class="input-form my-5">
 				<h1 class="text-center mb-3">회원가입</h1>
-				<div class="d-flex justify-content-between align-items-start">	
+				<div class="d-flex justify-content-between align-items-start mt-5">	
 					<input type="text" class="form-control col-8 mb-3" placeholder="id" id="identifier">
 					<button type="button" class="btn btn-info" id="checkDup">중복확인</button>
 				</div>
