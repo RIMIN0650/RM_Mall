@@ -13,4 +13,8 @@ public interface UserRepository extends JpaRepository<User,Integer>  {
 	public int countByLoginId(String loginId);
 	
 	
+	// 로그인 기능, 아이디 & 비밀번호 확인
+	public User findByLoginIdAndPassword(String loginId, String password);
+	
+	
 }
