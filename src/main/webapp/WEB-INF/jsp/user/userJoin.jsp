@@ -19,7 +19,11 @@
 				<h1 class="text-center mb-3">회원가입</h1>
 				<div class="d-flex justify-content-between align-items-start mt-5">	
 					<input type="text" class="form-control col-8 mb-3" placeholder="id" id="identifier">
-					<button type="button" class="btn btn-info" id="checkDup">중복확인</button>
+					<button type="button" class="btn btn-info" id="checkDup">중복확인</button>	
+				</div>
+				<div class="d-flex justify-content-center align-items-start">
+					<div class="small text-danger d-none mb-3" id="dupId">중복된 아이디 입니다.</div>
+					<div class="small text-success d-none mb-3" id="possId">사용 가능한 아이디 입니다.</div>
 				</div>
 				<input type="password" class="form-control mb-3" placeholder="password" id="password">
 				<input type="password" class="form-control mb-3" placeholder="check-password" id="checkPassword">
@@ -49,6 +53,8 @@
 		
 		$("#identifier").on("input",function(){
 			checkIdBtn = 0;
+			$("#dupId").addClass("d-none");
+			$("#possId").addClass("d-none");
 		});
 		
 		
@@ -67,10 +73,13 @@
 						checkIdBtn = 1;
 						if(data.isDuplicateId){
 							checkDup = false; // 아래 회원가입에서 못 넘어가도록
-							alert("중복된 아이디.");
+							$("#dupId").removeClass("d-none");
+							$("#possId").addClass("d-none");
 						} else {
 							checkDup = true; // 아래 회원가입에서 넘어가도록
-							alert("사용 가능한 아이디.");
+							$("#dupId").addClass("d-none");
+							$("#possId").removeClass("d-none");
+							
 						}
 					}
 			});
@@ -86,8 +95,6 @@
 			let address = $("#address").val();
 			let phoneNumber = $("#phoneNumber").val();
 			
-			
-			// 공백이 없도록 유효성 검사
 			if(id ==""){
 				alert("Id를 입력하세요");
 				return;
@@ -118,7 +125,7 @@
 			}
 
 			$.ajax({
-					type:"post"
+					type:"get"
 					, url:"/user/join"
 					, data:{"loginId":id, "password":pw, "name":name, "email":email, "phoneNumber":phoneNumber, "address":address }
 					, success:function(data){
@@ -138,15 +145,7 @@
 					}
 				
 			});
-			
-			
-			
-			
-			
 		});
-		
-		
-		
 	});
 
 </script>
