@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Join Us</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
@@ -33,7 +34,7 @@
 				<input type="text" class="form-control mb-3" placeholder="phoneNumber" id="phoneNumber">
 				<button type="button" class="btn btn-success col-12" id="joinBtn">회원가입</button>
 				<div class="text-center pt-5">
-					또는 &nbsp;<a href="#"> 메인 페이지로</a>
+					<a href="/user/login">로그인  </a>&nbsp;또는&nbsp;<a href="/main/home"> 메인 페이지로</a>
 				</div>
 			</div>
 			<!-- /input form -->
@@ -47,6 +48,11 @@
 	
 <script>
 	$(document).ready(function(){
+		
+		// spring validation
+		// error:function(request{
+		// 	alert(request.responseJSON.message);
+		// })
 		
 		let checkDup;
 		let checkIdBtn = 0; // 중복확인 판단 여부 확인

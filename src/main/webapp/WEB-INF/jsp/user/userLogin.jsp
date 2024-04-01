@@ -23,7 +23,7 @@
 				<button type="button" class="btn btn-info btn-lg my-3" id="logInBtn">로그인</button>
 				<hr>
 				<div class="mt-5">
-				계정이 없으시다면 &nbsp;<a href="/user/join">회원가입</a>
+				<a href="/user/join">회원가입</a>&nbsp;또는&nbsp;<a href="/main/home">메인 페이지로</a>
 				</div>
 			</div>
 		</section>
@@ -38,6 +38,7 @@
 	
 	<script>
 		$(document).ready(function(){
+			
 			
 			$("#logInBtn").on("click",function(){
 				

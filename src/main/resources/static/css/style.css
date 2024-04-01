@@ -33,15 +33,25 @@ header{
 }
 
 section{
-	height:700px;
+	height:1000px;
 }
 
 .main-menu{
 	width:200px;
+	height:800px;
 }
 
 .main-contents{
 	width:1000px;
+	height:800px;
+}
+.autoplay{
+	width:900px;
+	margin:0 auto;
+}
+.hot-product{
+	width:100px;
+	height:100px;
 }
 
 .input-form{

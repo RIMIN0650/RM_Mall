@@ -9,14 +9,14 @@
 		<div class="title">
 			<h1 class="display-3">RM Shop</h1>
 			<div id="banner" class="mt-4">
-				<div class="d-flex searchClothes justify-content-between">
+				<div class="d-flex searchClothes justify-content-end">
 					<div class="d-flex">
-					<input type="text" class="form-control mr-2" placeholder="Search" id="searchInput">
-					<button type="button" class="btn btn-outline-primary btn-sm" id="searchBtn">검색</button>
+					<input type="text" class="form-control mr-2 d-none" placeholder="Search" id="searchInput">
+					<button type="button" class="btn btn-outline-primary btn-sm d-none" id="searchBtn">검색</button>
 					</div>
-					<div>
-						<button type="button" class="btn btn-outline-success">로그인</button>
-						<button type="button" class="btn btn-outline-success mx-3">회원가입</button>
+					<div class="ml-5">
+						<button type="button" onclick="location.href='/user/login'" class="btn btn-outline-success">로그인</button>
+						<button type="button" onclick="location.href='/user/join'" class="btn btn-outline-success mx-3">회원가입</button>
 					</div>
 				</div>
 			</div>			
