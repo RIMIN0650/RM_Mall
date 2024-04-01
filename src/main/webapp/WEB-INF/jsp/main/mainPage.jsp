@@ -22,7 +22,16 @@
 		
 		<section class="d-flex">
 			<nav class="main-menu bg-danger">
-			
+				<ul class="nav flex-column">
+					<li class="nav-item"><a href="#" class="text-white">아우터</a></li>
+					<li class="nav-item"><a href="#" class="text-white">셔츠/블라우스</a></li>
+					<li class="nav-item"><a href="#" class="text-white">스커트</a></li>
+					<li class="nav-item"><a href="#" class="text-white">팬츠</a></li>
+					<li class="nav-item"><a href="#" class="text-white">데님</a></li>
+					<li class="nav-item"><a href="#" class="text-white">니트/가디건</a></li>
+					<li class="nav-item"><a href="#" class="text-white">드레스</a></li>
+					<li class="nav-item"><a href="#" class="text-white">악세서리</a></li>
+				</ul>
 			</nav>
 			<article class="main-contents bg-warning">
 				<h3 class="text-center my-3">popular products</h3>
