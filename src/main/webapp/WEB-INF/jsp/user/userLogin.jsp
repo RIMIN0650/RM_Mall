@@ -61,7 +61,8 @@
 					, data:{"loginId":id, "loginPw":pw}
 					, success:function(data){
 						if(data.result == "success"){
-							alert("로그인 성공");
+							location.href="/main/home";
+							alert("로그인 성공 메인 페이지로 이동합니다");
 						} else {
 							alert("로그인 실패");
 						}

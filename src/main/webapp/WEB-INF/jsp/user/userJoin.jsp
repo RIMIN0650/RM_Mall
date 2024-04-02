@@ -138,7 +138,7 @@
 						if(checkIdBtn !=0 ){
 							if(data.result == "success" && (checkDup)){
 								alert("회원가입 성공 메인 페이지로 이동합니다");
-								location.reload();
+								location.href="/main/home";
 							} else {
 								alert("회원가입 실패! 아이디를 확인하세요.");
 							}
