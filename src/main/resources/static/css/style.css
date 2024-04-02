@@ -13,11 +13,13 @@ header{
 	height:150px;
 	width:200px;
 }
+
 .title{
 	height:150px;
 	width:1000px;
 
 }
+
 
 
 .searchClothes{
@@ -45,18 +47,45 @@ a{
 	padding:20px 10px;
 }
 
+list{
+	 padding:0px 20px;
+}
+li:hover{
+	background-color:#e54747;
+}
 
 .main-contents{
 	width:1000px;
 	height:800px;
 }
+
+#popular-product{
+	border: 1px solid;
+}
+
 .autoplay{
 	width:900px;
 	margin:0 auto;
 }
+
+
 .hot-product{
 	width:100px;
 	height:100px;
+}
+
+.product-text{
+	height:100px;
+}
+
+.products{
+	width:200px;
+	height:200px;
+	border:1px solid;
+}
+
+.cloth-info{
+	font-size:11px;
 }
 
 .input-form{
