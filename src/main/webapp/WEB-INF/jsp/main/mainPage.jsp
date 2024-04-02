@@ -124,38 +124,6 @@
 		$("#searchInput").removeClass("d-none");
 		$("#searchBtn").removeClass("d-none");
 	
-		// var exist = "<c:out value="${userName}"/>";
-		// 되도록이면 쓰지 않기
-		
-		let exist = $("#loginId").val();
-		
-		if(exist != null){
-			// 로그인 상태라면
-			// 로그인 , 회원가입 버튼 없애기
-			// 사용자 이름, 로그아웃 버튼 보여주기
-			$("#loginBtn").addClass("d-none");
-			$("#joinBtn").addClass("d-none");
-			$("#loginId").removeClass("d-none");
-			$("#logoutBtn").removeClass("d-none");
-			
-		} else {
-			// 로그인 상태가 아니라면
-			// 로그인 회원가입 버튼 보여주기
-			$("#login-Btn").removeClass("d-none");
-			$("#join-Btn").removeClass("d-none");
-			$("#loginId").addClass("d-none");
-			$("#logoutBtn").addClass("d-none");
-			
-		}
-	
-		
-		 
-		
-		
-		
-		
-		
-	
 		
 	});
 	</script>

@@ -14,14 +14,20 @@
 					<input type="text" class="form-control mr-2 d-none" placeholder="Search" id="searchInput">
 					<button type="button" class="btn btn-outline-primary btn-sm d-none" id="searchBtn">검색</button>
 					</div>
-					<div class="ml-5">
-						<button type="button" onclick="location.href='/user/login'" class="btn btn-outline-success" id="loginBtn">로그인</button>
-						<button type="button" onclick="location.href='/user/join'" class="btn btn-outline-success mx-3" id="joinBtn">회원가입</button>
-					</div>
-					<div class="d-flex">
-						<div class="loginId mr-1 mt-1 d-none" id="loginId">${userName }</div><p class="mr-4 mt-2">님</p>
-						<button type="button" class="btn btn-outline-info d-none" id="logoutBtn">로그아웃</button>
-					</div>
+					<c:choose>
+						<c:when test="${userName eq null }">
+							<div class="ml-5">
+								<button type="button" onclick="location.href='/user/login'" class="btn btn-outline-success" id="loginBtn">로그인</button>
+								<button type="button" onclick="location.href='/user/join'" class="btn btn-outline-success mx-3" id="joinBtn">회원가입</button>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div class="d-flex ml-5">
+								<div class="loginId mr-3 mt-1" id="loginId">${userName } &nbsp;님</div>
+								<button type="button" class="btn btn-outline-info" id="logoutBtn"><a href="/user/logout">로그아웃</a></button>
+							</div>
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>			
 			
