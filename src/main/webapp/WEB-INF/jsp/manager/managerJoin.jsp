@@ -16,22 +16,19 @@
 		<section class="d-flex justify-content-center">
 			<!-- input form -->
 			<div class="input-form my-5">
-				<h1 class="text-center mb-3">회원가입</h1>
+				<h1 class="text-center mb-3">관리자 회원가입</h1>
 				<div class="d-flex justify-content-between align-items-start">	
 					<input type="text" class="form-control col-8 mb-3" placeholder="id" id="identifier">
 					<button type="button" class="btn btn-info" id="checkDup">중복확인</button>
 				</div>
-				<label><input type="checkbox" class="mx-1" id="managerCheck" value="manager">관리자인 경우 체크</label>
-				<input type="password" class="form-control mb-3" placeholder="managerPw" id="managerPw"> 
+				<input type="password" class="form-control mb-3" placeholder="관리자 인증번호" id="managerPw"> 
 				<input type="password" class="form-control mb-3" placeholder="password" id="password">
 				<input type="password" class="form-control mb-3" placeholder="check-password" id="checkPassword">
 				<input type="text" class="form-control mb-3" placeholder="name" id="name">
-				<input type="text" class="form-control mb-3" placeholder="e-mail" id="email">
-				<input type="text" class="form-control mb-3" placeholder="address" id="address">
-				<input type="text" class="form-control mb-3" placeholder="phoneNumber" id="phoneNumber">
 				<button type="button" class="btn btn-success col-12" id="joinBtn">회원가입</button>
+				
 				<div class="text-center pt-5">
-					또는 &nbsp;<a href="#"> 로그인</a>
+					<a href="/user/login">로그인</a>&nbsp;또는&nbsp;<a href="/main/home">메인 페이지로</a>
 				</div>
 			</div>
 			<!-- /input form -->
@@ -46,41 +43,14 @@
 <script>
 	$(document).ready(function(){
 		
+		
 		$("#checkDup").on("click",function(){
-			alert("checkDup");
-			
+			alert("checkeDup");
 		});
-		
-		$("#joinBtn").on("click",function(){
-			let id = $("#identifier").val();
-			let pw = $("#password").val();
-			let checkPw = $("#checkPassword").val();
-			let name = $("#name").val();
-			let email = $("#email").val();
-			let address = $("#address").val();
-			let phoneNumber = $("#phoneNumber").val();
-			
-			
-			// 공백이 없도록 유효성 검사
-			if(id ==""){
-				alert("Id를 입력하세요");
-				return;
-			}
-			if(pw ==""){
-				alert("password를 입력하세요");
-				return;
-			}
-			if(pw != checkPw){
-				alert("비밀번호를 확인하세요");
-				return;
-			}
-			if(name ==""){
-				alert("이름을 입력하세요");
-				return;
-			}
 
+		$("#joinBtn").on("click",function(){
+			alert("qwerqwer");
 		});
-		
 		
 		
 	});

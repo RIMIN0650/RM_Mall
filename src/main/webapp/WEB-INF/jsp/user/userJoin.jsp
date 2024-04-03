@@ -54,11 +54,15 @@
 		// 	alert(request.responseJSON.message);
 		// })
 		
-		let checkDup;
-		let checkIdBtn = 0; // 중복확인 판단 여부 확인
+		var isDupId = true; // 중복된 아이디인지 체크
 		
+		var isDupCheck = false; // 아이디 중복확인 검사 여부
+		
+		// 아이디 입력창에 변경이 생겼다면
 		$("#identifier").on("input",function(){
-			checkIdBtn = 0;
+			isDupId = true;
+			isDupCheck = false;
+			
 			$("#dupId").addClass("d-none");
 			$("#possId").addClass("d-none");
 		});
@@ -71,28 +75,31 @@
 				alert("Id를 입력하세요");
 				return;
 			}
+			
 			$.ajax({
 				type:"get"
 				, url:"/user/duplicate-id"
 				, data:{"loginId":id}
 				, success:function(data){
-						checkIdBtn = 1;
-						if(data.isDuplicateId){
-							checkDup = false; // 아래 회원가입에서 못 넘어가도록
+						isDupCheck = true; // 아이디 중복 확인 여부를 참으로 만들어주기
+						if(data.isDuplicateId){ // 만약 아이디가 중복아이디라면
+							isDupId = true;
 							$("#dupId").removeClass("d-none");
 							$("#possId").addClass("d-none");
-						} else {
-							checkDup = true; // 아래 회원가입에서 넘어가도록
+						} else { // 아이디가 사용 가능한 아이디라면
+							isDupId = false;
 							$("#dupId").addClass("d-none");
-							$("#possId").removeClass("d-none");
-							
+							$("#possId").removeClass("d-none");			
 						}
 					}
+				, error:function(){
+					alert("중복확인 에러");
+				}
 			});
-			
 		});
 		
 		$("#joinBtn").on("click",function(){
+			
 			let id = $("#identifier").val();
 			let pw = $("#password").val();
 			let checkPw = $("#checkPassword").val();
@@ -101,8 +108,17 @@
 			let address = $("#address").val();
 			let phoneNumber = $("#phoneNumber").val();
 			
+			
 			if(id ==""){
 				alert("Id를 입력하세요");
+				return;
+			}
+			if(!isDupCheck){
+				alert("id 중복 확인을 해주세요");
+				return;
+			}
+			if(isDupId){
+				alert("중복된 id입니다");
 				return;
 			}
 			if(pw ==""){
@@ -131,25 +147,20 @@
 			}
 
 			$.ajax({
-					type:"get"
+					type:"post"
 					, url:"/user/join"
 					, data:{"loginId":id, "password":pw, "name":name, "email":email, "phoneNumber":phoneNumber, "address":address }
 					, success:function(data){
-						if(checkIdBtn !=0 ){
-							if(data.result == "success" && (checkDup)){
-								alert("회원가입 성공 메인 페이지로 이동합니다");
-								location.href="/main/home";
-							} else {
-								alert("회원가입 실패! 아이디를 확인하세요.");
-							}
+						if(data.result == "success"){
+							alert("로그인 성공! 메인 페이지로 이동합니다");
+							location.href="/main/home"
 						} else {
-							alert("id 중복을 확인하세요");
+							alert("로그인 실패.");
 						}
 					}
 					,error:function(){
-						alert("회원가입 에러");
+						alert("error");
 					}
-				
 			});
 		});
 	});

@@ -17,14 +17,15 @@
 					<c:choose>
 						<c:when test="${userName eq null }">
 							<div class="ml-5">
-								<button type="button" onclick="location.href='/user/login'" class="btn btn-outline-success" id="loginBtn">로그인</button>
-								<button type="button" onclick="location.href='/user/join'" class="btn btn-outline-success mx-3" id="joinBtn">회원가입</button>
+								<a href="/user/login" class="btn btn-outline-success">로그인</a>
+								<a href="/user/join" class="btn btn-outline-success ml-3">회원가입</a>
+								
 							</div>
 						</c:when>
 						<c:otherwise>
 							<div class="d-flex ml-5">
 								<div class="loginId mr-3 mt-1" id="loginId">${userName } &nbsp;님</div>
-								<button type="button" class="btn btn-outline-info" id="logoutBtn"><a href="/user/logout">로그아웃</a></button>
+								<button type="button" class="btn btn-outline-info" id="logoutBtn"><a href="/user/logout" class="text-info">로그아웃</a></button>
 							</div>
 						</c:otherwise>
 					</c:choose>
