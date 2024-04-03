@@ -86,6 +86,11 @@ li:hover{
 	border:1px solid;
 }
 
+label{
+	font-size:30px;
+	margin:0 10px;
+}
+
 .cloth-info{
 	font-size:11px;
 }

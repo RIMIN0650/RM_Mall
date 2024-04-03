@@ -29,11 +29,34 @@
 			
 			<article class="main-contents ml-3 bg-success">
 				
-				<div class="d-flex justify-content between mx-3 mt-5">
+				<div class="d-flex justify-content-between mx-3 mt-5">
 					<div>
 						상품 이미지
+						<input type="file">
 					</div>
 					<div>
+						<div class="d-flex align-items-center">
+							<label>XS</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="d-flex align-items-center">
+							<label>S</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="d-flex align-items-center">
+							<label>M</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="d-flex align-items-center">
+							<label>L</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="d-flex align-items-center">
+							<label>XL</label>
+							<input type="text" class="form-control">
+						</div>
+						
+						
 						
 					</div>
 				</div>
