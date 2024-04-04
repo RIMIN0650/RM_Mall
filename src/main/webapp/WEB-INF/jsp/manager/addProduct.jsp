@@ -64,7 +64,9 @@
 				<div class="input-product-info mt-5">
 					<div>
 						<div class="d-flex jusfify-content-center align-items-center my-3">
-							<input type="text" class="form-control mx-3" placeholder="상품명" id="product-name">							<div>
+							<input type="text" class="form-control mx-3" placeholder="상품명" id="product-name">		
+							<input type="text" class="form-control mx-3" placeholder="가격" id="productPrice">					
+							<div>
 							<select class="selectpicker" data-width="200px" id="selectCategory">
 							  <option value="0" selected>분류 선택</option>
 							  <option value="1">아우터</option>
