@@ -103,7 +103,11 @@ label{
 	width:300px;
 }
 
-#product-detail{
+#imagePath{
+	width:515px;
+}
+
+#productDetail{
 	height:150px;
 	width:515px;
 }

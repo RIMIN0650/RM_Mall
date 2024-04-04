@@ -40,23 +40,23 @@
 					<div class="mr-3 mt-2">
 						<div class="d-flex align-items-center justify-content-between">
 							<label>XS</label>
-							<input type="text" class="form-control input-size">
+							<input type="text" class="form-control input-size" id="countXS">
 						</div>
 						<div class="d-flex align-items-center justify-content-between">
 							<label>S</label>
-							<input type="text" class="form-control input-size">
+							<input type="text" class="form-control input-size" id="countS">
 						</div>
 						<div class="d-flex align-items-center justify-content-between">
 							<label>M</label>
-							<input type="text" class="form-control input-size">
+							<input type="text" class="form-control input-size" id="countM">
 						</div>
 						<div class="d-flex align-items-center justify-content-between">
 							<label>L</label>
-							<input type="text" class="form-control input-size">
+							<input type="text" class="form-control input-size" id="countL">
 						</div>
 						<div class="d-flex align-items-center justify-content-between">
 							<label>XL</label>
-							<input type="text" class="form-control input-size">
+							<input type="text" class="form-control input-size" id="countXL">
 						</div>
 					</div>
 				</div>
@@ -65,7 +65,7 @@
 					<div>
 						<div class="d-flex jusfify-content-center align-items-center my-3">
 							<input type="text" class="form-control mx-3" placeholder="상품명" id="product-name">							<div>
-							<select class="selectpicker" data-width="200px">
+							<select class="selectpicker" data-width="200px" id="selectCategory">
 							  <option value="0" selected>분류 선택</option>
 							  <option value="1">아우터</option>
 							  <option value="2">셔츠/블라우스</option>
@@ -74,17 +74,18 @@
 							  <option value="5">데님</option>
 							  <option value="6">니트/가디건</option>
 							  <option value="7">드레스</option>
-							  <option value="8">악세서리</option>
+							  <option>악세서리</option>
 							</select>
 							</div>
 						</div>
 						<div>
-							<input type="text" class="form-control ml-3" placeholder="상품 상세 정보" id="product-detail">
+							<input type="text" class="form-control ml-3 mb-3" placeholder="상품 이미지 주소 // 나중에 파일 업로드로 대체" id="imagePath">
+							<input type="text" class="form-control ml-3" placeholder="상품 상세 정보" id="productDetail">
 						</div>
 					</div>
 					<div class="d-flex justify-content-end">
-						<button type="button" class="btn btn-danger btn-lg mr-5">돌아가기</button>
-						<button type="button" class="btn btn-info btn-lg">상품 추가</button>
+						<button type="button" class="btn btn-danger btn-lg mr-5" id="goBackBtn"><a href="/main/home" class="text-white">돌아가기</a></button>
+						<button type="button" class="btn btn-info btn-lg" id="addProductBtn">상품 추가</button>
 					</div>
 				</div>
 			</article>
@@ -107,9 +108,91 @@
 	
 	
 	<script>
-		$(".selectpicker").selectpicker({
-			background-color:#FAEBD7;
+		$(document).ready(function(){
+			let selectCat = 0;
+			
+			
+			
+			$("#goBackBtn").on("click",function(){
+				alert("goBackBtn");
+			});
+			$("#selectCategory").change(function(){
+				let selectCategory = document.getElementById("selectCategory");
+				let category = selectCategory.options[selectCategory.selectedIndex].value;				
+				selectCat = category;
+			});
+			$("#addProductBtn").on("click",function(){
+				
+				let productName = $("#product-name").val();
+				let imagePath = $("#imagePath").val();
+				let productDetail = $("#productDetail").val();
+				let countXS = $("#countXS").val();
+				let countS = $("#countS").val();
+				let countM = $("#countM").val();
+				let countL = $("#countL").val();
+				let countXL = $("#countXL").val();
+				
+				
+				
+				if(productName == ""){
+					alert("제품명을 입력하세요");
+					return;
+				}
+				
+				if(selectCat == 0){
+					alert("제품 카테고리를 선택하세요");
+					return;
+				}
+				
+				if(imagePath == ""){
+					alert("이미지파일을 선택하세요");
+					return;
+				}
+				
+				if(productDetail == ""){
+					alert("제품 상세 정보를 입력하세요");
+					return;
+				}
+				
+				
+				if(countXS == ""){
+					countXS = 0;
+				}
+				if(countS == ""){
+					countS = 0;
+				}
+				if(countM == ""){
+					countM = 0;
+				}
+				if(countL == ""){
+					countL = 0;
+				}
+				if(countXL == ""){
+					countXL = 0;
+				}
+				
+				
+				
+				alert(countXS+countS+countM+countL+countXL);
+				
+				
+				
+				
+				
+					
+				
+			});
+			
 		});
+	
+	
+	
+	
+		$(".selectpicker").selectpicker({
+		});
+		
+		
+		
 	</script>
 </body>
 </html>
