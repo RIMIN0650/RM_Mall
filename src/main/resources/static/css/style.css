@@ -95,6 +95,20 @@ label{
 	font-size:11px;
 }
 
+.input-size{
+	width:100px;
+}
+
+#product-name{
+	width:300px;
+}
+
+#product-detail{
+	height:150px;
+	width:515px;
+}
+
+
 .input-form{
 	width:300px;
 }

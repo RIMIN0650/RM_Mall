@@ -38,7 +38,7 @@
 				</div>
 			</div>
 			<!-- /input form -->
-		</section>	
+		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
 	
@@ -151,6 +151,8 @@
 					, url:"/user/join"
 					, data:{"loginId":id, "password":pw, "name":name, "email":email, "phoneNumber":phoneNumber, "address":address }
 					, success:function(data){
+						console.log(data);
+						
 						if(data.result == "success"){
 							alert("로그인 성공! 메인 페이지로 이동합니다");
 							location.href="/main/home"

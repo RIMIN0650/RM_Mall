@@ -19,7 +19,7 @@
 					<h1>로그인</h1>
 				</div>
 				<input type="text" class="form-control my-3" placeholder="id" id="logInId">
-				<input type="text" class="form-control mb-3" placeholder="password" id="logInPw">
+				<input type="password" class="form-control mb-3" placeholder="password" id="logInPw">
 				<button type="button" class="btn btn-info btn-lg my-3" id="logInBtn">로그인</button>
 				<hr>
 				<div class="mt-5">
