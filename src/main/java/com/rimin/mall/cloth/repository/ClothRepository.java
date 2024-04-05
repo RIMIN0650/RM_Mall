@@ -1,0 +1,9 @@
+package com.rimin.mall.cloth.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.rimin.mall.cloth.domain.Cloth;
+
+public interface ClothRepository extends JpaRepository<Cloth,Integer> {
+
+}

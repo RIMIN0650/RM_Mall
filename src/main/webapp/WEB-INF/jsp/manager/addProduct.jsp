@@ -31,13 +31,47 @@
 			</nav>
 			
 			<article class="main-contents ml-3">
-				
-				<div class="d-flex justify-content-between mx-3 mt-5">
+				<!-- 상품 이미지 -->
+				<div class="mx-3 mt-5">
 					<div>
 						<img src="https://cdn.pixabay.com/photo/2020/06/05/06/26/fashion-5261649_640.jpg">
-						<input type="file">
 					</div>
-					<div class="mr-3 mt-2">
+					<input type="file">					
+				</div>
+				<!-- 상품 이미지 -->
+
+				<!-- 상품 정보 입력 칸 -->
+				<div class="input-product-info mt-5 d-flex justify-content-between">
+					<div>
+						<div>
+							<div class="d-flex jusfify-content-center align-items-center my-3">
+								<input type="text" class="form-control mx-3" placeholder="상품명" id="product-name">	
+								<input type="text" class="form-control mr-3" placeholder="가격" id="productPrice">					
+								<div>
+								<select class="selectpicker" data-width="200px" id="selectCategory">
+								  <option value="0" selected>분류 선택</option>
+								  <option value="1">아우터</option>
+								  <option value="2">셔츠/블라우스</option>
+								  <option value="3">스커트</option>
+								  <option value="4">팬츠</option>
+								  <option value="5">데님</option>
+								  <option value="6">니트/가디건</option>
+								  <option value="7">드레스</option>
+								  <option>악세서리</option>
+								</select>
+								</div>
+							</div>
+							<div class="mb-3">
+								<input type="text" class="form-control ml-3 mb-3" placeholder="상품 이미지 주소 // 나중에 파일 업로드로 대체" id="imagePath">
+								<input type="text" class="form-control ml-3" placeholder="상품 상세 정보" id="productDetail">
+							</div>
+						</div>
+					</div>
+					<!-- 상품 정보 입력 칸 -->
+					
+					<!-- 사이즈별 수량 입력 칸 -->
+					<div class="mt-1 mr-5">
+						<div class="mr-5 mt-3">
 						<div class="d-flex align-items-center justify-content-between">
 							<label>XS</label>
 							<input type="text" class="form-control input-size" id="countXS">
@@ -59,47 +93,23 @@
 							<input type="text" class="form-control input-size" id="countXL">
 						</div>
 					</div>
+					</div>
+					<!-- 사이즈별 수량 입력 칸 -->
 				</div>
 				
-				<div class="input-product-info mt-5">
-					<div>
-						<div class="d-flex jusfify-content-center align-items-center my-3">
-							<input type="text" class="form-control mx-3" placeholder="상품명" id="product-name">		
-							<input type="text" class="form-control mx-3" placeholder="가격" id="productPrice">					
-							<div>
-							<select class="selectpicker" data-width="200px" id="selectCategory">
-							  <option value="0" selected>분류 선택</option>
-							  <option value="1">아우터</option>
-							  <option value="2">셔츠/블라우스</option>
-							  <option value="3">스커트</option>
-							  <option value="4">팬츠</option>
-							  <option value="5">데님</option>
-							  <option value="6">니트/가디건</option>
-							  <option value="7">드레스</option>
-							  <option>악세서리</option>
-							</select>
-							</div>
-						</div>
-						<div>
-							<input type="text" class="form-control ml-3 mb-3" placeholder="상품 이미지 주소 // 나중에 파일 업로드로 대체" id="imagePath">
-							<input type="text" class="form-control ml-3" placeholder="상품 상세 정보" id="productDetail">
-						</div>
-					</div>
-					<div class="d-flex justify-content-end">
-						<button type="button" class="btn btn-danger btn-lg mr-5" id="goBackBtn"><a href="/main/home" class="text-white">돌아가기</a></button>
-						<button type="button" class="btn btn-info btn-lg" id="addProductBtn">상품 추가</button>
-					</div>
+				<!-- 상품 추가 버튼 -->
+				<div class="d-flex justify-content-end mt-4">
+					<button type="button" class="btn btn-danger btn-lg mr-5" id="goBackBtn"><a href="/main/home" class="text-white">돌아가기</a></button>
+					<button type="button" class="btn btn-info btn-lg" id="addProductBtn">상품 추가</button>
 				</div>
+				<!-- 상품 추가 버튼 -->
+				
 			</article>
 			
 			
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
-
-
-	
-
 
 
 
@@ -133,8 +143,6 @@
 				let countM = $("#countM").val();
 				let countL = $("#countL").val();
 				let countXL = $("#countXL").val();
-				
-				
 				
 				if(productName == ""){
 					alert("제품명을 입력하세요");
