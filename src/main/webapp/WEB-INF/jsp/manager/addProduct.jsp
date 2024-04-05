@@ -135,7 +135,9 @@
 			});
 			$("#addProductBtn").on("click",function(){
 				
+				
 				let productName = $("#product-name").val();
+				let clothPrice = $("#productPrice").val();
 				let imagePath = $("#imagePath").val();
 				let productDetail = $("#productDetail").val();
 				let countXS = $("#countXS").val();
@@ -186,9 +188,9 @@
 				$.ajax({
 					type:"post"
 					, url:"/manager/add-cloth"
-					, data:{"clothName":product-name
-						, "clothPrice":productPrice
-						, "clothCategory":selectCategory
+					, data:{"clothName":productName
+						, "clothPrice":clothPrice
+						, "clothCategory":selectCat 
 						, "clothImagePath":imagePath
 						, "clothInfo":productDetail
 						, "countXS":countXS, "countS":countS, "countM":countM, "countL":countL, "countXL":countXL }

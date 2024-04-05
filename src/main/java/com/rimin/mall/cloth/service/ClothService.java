@@ -34,12 +34,13 @@ public class ClothService {
 							.clothName(clothName)
 							.clothPrice(clothPrice)
 							.clothCategory(clothCategory)
-							.clothImage(clothImagePath)
+							.clothImagePath(clothImagePath)
 							.clothInfo(clothInfo)
 							.build();
 		
 		if(countXS != 0) {
 		Size size = Size.builder()
+						.clothId(cloth.getId())
 						.sizeType("XS")
 						.sizeCount(countXS)
 						.build();
@@ -48,6 +49,7 @@ public class ClothService {
 		
 		if(countS != 0) {
 		Size size = Size.builder()
+				.clothId(cloth.getId())
 				.sizeType("S")
 				.sizeCount(countS)
 				.build();
@@ -56,6 +58,7 @@ public class ClothService {
 		
 		if(countM != 0) {
 		Size size = Size.builder()
+				.clothId(cloth.getId())
 				.sizeType("M")
 				.sizeCount(countM)
 				.build();
@@ -64,6 +67,7 @@ public class ClothService {
 		
 		if(countL != 0) {
 		Size size = Size.builder()
+				.clothId(cloth.getId())
 				.sizeType("L")
 				.sizeCount(countL)
 				.build();
@@ -72,6 +76,7 @@ public class ClothService {
 		
 		if(countXL != 0) {
 		Size size = Size.builder()
+				.clothId(cloth.getId())
 				.sizeType("XL")
 				.sizeCount(countXL)
 				.build();

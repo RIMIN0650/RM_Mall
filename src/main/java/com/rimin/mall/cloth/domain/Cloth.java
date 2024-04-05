@@ -30,8 +30,8 @@ public class Cloth {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="clothImage")
-	private String clothImage;
+	@Column(name="clothImagePath")
+	private String clothImagePath;
 	
 	@Column(name="clothName")
 	private String clothName;
