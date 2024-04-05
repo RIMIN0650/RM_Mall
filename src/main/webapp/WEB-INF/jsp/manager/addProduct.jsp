@@ -183,14 +183,28 @@
 				
 				
 				
-				alert(countXS+countS+countM+countL+countXL);
-				
-				
-				
-				
-				
+				$.ajax({
+					type:"post"
+					, url:"/manager/add-cloth"
+					, data:{"clothName":product-name
+						, "clothPrice":productPrice
+						, "clothCategory":selectCategory
+						, "clothImagePath":imagePath
+						, "clothInfo":productDetail
+						, "countXS":countXS, "countS":countS, "countM":countM, "countL":countL, "countXL":countXL }
+					, success:function(data){
+						if(data.result == "success"){
+							alert("success");
+						} else {
+							alert("fail");
+						}
+					}
+					, error:function(){
+						alert("error");
+					}
 					
-				
+				});
+						
 			});
 			
 		});
