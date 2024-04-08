@@ -49,4 +49,5 @@ public class UserService {
 		return userRepository.findByLoginIdAndPassword(loginId, loginPw);
 	}
 	
+
 }

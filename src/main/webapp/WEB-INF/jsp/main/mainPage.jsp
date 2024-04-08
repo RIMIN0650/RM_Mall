@@ -32,6 +32,7 @@
 					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">드레스</h5></li>
 					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">악세서리</h5></li>
 				</ul>
+				<button type="button" class="btn"><a href="/user/save/payment">결제 정보 추가</a></button>
 			</nav>
 			
 			<article class="main-contents ml-3">

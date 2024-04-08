@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
 <body>
-	
 	<div id="wrap" class="bg-warning">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section class="d-flex">
@@ -39,15 +38,25 @@
 				</div>
 				<div class="mt-3 ml-5" id="card-info">
 					<div id="card-input">
-						<input type="text" class="form-control w-150" placeholder="카드 번호">
-						<div class="d-flex justify-content-between mt-5">
-							<input type="text" class="form-control col-5" placeholder="유효 기간">
-							<input type="text" class="form-control col-5" placeholder="카드 비밀번호">
+						<div>카드번호</div>
+						<input type="text" class="form-control" placeholder="XXXX-XXXX-XXXX-XXXX" id="cardNumber" maxlength="16">
+						<div class="mt-3">
+							<div>유효기간</div>	
+							<div class="d-flex">
+								<input type="password" class="form-control col-3" placeholder="MM" id="validMonth" maxlength="2">
+								<input type="password" class="form-control col-3 ml-1" placeholder="YY" id="validYear" maxlength="2">
+								<button type="button" class="btn btn-success ml-4" id="checkValidDate">확인</button>
+							</div>
+							<div>카드 비밀번호</div>
+							<div class="d-flex">
+								<input type="password" class="form-control col-5 mt-3" placeholder="****" id="cardPassword" maxlength="4">
+								<button type="button" class="btn btn-success ml-4 mt-3" id="checkCardPw">확인</button>
+							</div>
 						</div>
 					</div>
 					<div class="d-flex justify-content-between">
-							<button type="button" class="btn btn-danger btn-lg mt-5">돌아가기</button>
-							<button type="button" class="btn btn-info btn-lg mt-5">저장하기</button>
+							<button type="button" class="btn btn-danger btn-lg mt-5" id="backBtn"><a href="/main/home">돌아가기</a></button>
+							<button type="button" class="btn btn-info btn-lg mt-5" id="saveBtn">저장하기</button>
 					</div>
 				</div>
 			</div>
@@ -65,10 +74,87 @@
 	
 	<script>
 	$(document).ready(function(){
+		let bankType = 0;
+		
+		$("#selectCategory").change(function(){
+			let selectCategory = document.getElementById("selectCategory");
+			let category = selectCategory.options[selectCategory.selectedIndex].value;				
+			bankType = category;
+		});
+		
+		$("#checkValidDate").on("click",function(){
+			$("#validYear").prop("type","text");
+			$("#validMonth").prop("type","text");
+		});
+		
+		$("#checkCardPw").on("click",function(){
+			$("#cardPassword").prop("type","text");
+			
+		});
 		
 		
 		
+		$("#saveBtn").on("click",function(){
+			let cardNum = $("#cardNumber").val();
+			let valMonth = $("#validMonth").val();
+			let valYear = $("#validYear").val();
+			let cardPw = $("#cardPassword").val();
+			
+			
+			if(bankType==0){
+				alert("은행을 선택해주세요");
+				return;
+			}
+			if(cardNum == ""){
+				alert("카드 번호를 입력해주세요");
+				return;
+			}
+			if(cardNum.length!=16){
+				alert("카드 번호 16자리를 모두 입력해 주세요");
+				return;
+			}
+			if(valMonth == ""){
+				alert("카드 유효 달을 입력하세요");
+				return;
+			}
+			if(valYear == ""){
+				alert("카드 유효 년을 입력하세요")
+				return;
+			}
+			if(cardPw == ""){
+				alert("카드 비밀번호를 입력하세요");
+				return;
+			}
+			
+			let formData = new FormData();
+			formData.append("bankType",bankType);
+			formData.append("cardNumber",cardNum);
+			formData.append("validMonth",valMonth);
+			formData.append("validYear",valYear);
+			formData.append("cardPassword",cardPw);
+			
+			
+			$.ajax({
+				type:"post"
+				, url:"/user/payment"
+				, data:formData
+				, success:function(data){
+					if(data.result == "success"){
+						alert("성공");
+					} else {
+						alert("실패");
+					}
+				}
+				,error:function(){
+					alert("에러");
+				}
+			});
+			
+			
+			
+		});
 		
+
 		
 		
 		
