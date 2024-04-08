@@ -38,6 +38,7 @@ public class ClothService {
 							.clothInfo(clothInfo)
 							.build();
 		
+		
 		if(countXS != 0) {
 		Size size = Size.builder()
 						.clothId(cloth.getId())
@@ -46,6 +47,7 @@ public class ClothService {
 						.build();
 		sizeRepository.save(size);
 		}
+		
 		
 		if(countS != 0) {
 		Size size = Size.builder()
@@ -56,6 +58,7 @@ public class ClothService {
 		sizeRepository.save(size);
 		}
 		
+		
 		if(countM != 0) {
 		Size size = Size.builder()
 				.clothId(cloth.getId())
@@ -65,6 +68,7 @@ public class ClothService {
 		sizeRepository.save(size);
 		}
 		
+		
 		if(countL != 0) {
 		Size size = Size.builder()
 				.clothId(cloth.getId())
@@ -73,6 +77,7 @@ public class ClothService {
 				.build();
 		sizeRepository.save(size);
 		}
+		
 		
 		if(countXL != 0) {
 		Size size = Size.builder()

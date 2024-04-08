@@ -9,5 +9,6 @@ public class MainController {
 	public String mainHome() {
 		return "main/mainPage";
 	}
+
 	
 }

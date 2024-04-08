@@ -35,5 +35,10 @@ public class UserController {
 	}
 	
 	
+	// user 결제 정보 저장
+	@GetMapping("/user/save/payment")
+	public String savePayment() {
+		return "user/userPayment";
+	}
 	
 }

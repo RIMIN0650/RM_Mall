@@ -57,7 +57,7 @@
 								  <option value="5">데님</option>
 								  <option value="6">니트/가디건</option>
 								  <option value="7">드레스</option>
-								  <option>악세서리</option>
+								  <option value="8">악세서리</option>
 								</select>
 								</div>
 							</div>
@@ -124,7 +124,6 @@
 			let selectCat = 0;
 			
 			
-			
 			$("#goBackBtn").on("click",function(){
 				alert("goBackBtn");
 			});
@@ -134,7 +133,6 @@
 				selectCat = category;
 			});
 			$("#addProductBtn").on("click",function(){
-				
 				
 				let productName = $("#product-name").val();
 				let clothPrice = $("#productPrice").val();

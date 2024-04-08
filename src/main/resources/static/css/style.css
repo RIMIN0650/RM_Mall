@@ -116,6 +116,13 @@ label{
 	width:654px;
 }
 
+#card-info{
+	width:400px;
+}
+#card-input{
+	height:300px;
+	width:400px;
+}
 
 .input-form{
 	width:300px;
