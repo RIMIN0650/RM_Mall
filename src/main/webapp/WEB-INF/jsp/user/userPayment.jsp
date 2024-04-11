@@ -95,21 +95,23 @@
 		
 		
 		$("#saveBtn").on("click",function(){
-			let cardNum = $("#cardNumber").val();
+			
+			let cardNumber = $("#cardNumber").val();
 			let valMonth = $("#validMonth").val();
 			let valYear = $("#validYear").val();
 			let cardPw = $("#cardPassword").val();
 			
+			alert(cardNumber);
 			
 			if(bankType==0){
 				alert("은행을 선택해주세요");
 				return;
 			}
-			if(cardNum == ""){
+			if(cardNumber == ""){
 				alert("카드 번호를 입력해주세요");
 				return;
 			}
-			if(cardNum.length!=16){
+			if(cardNumber.length!=16){
 				alert("카드 번호 16자리를 모두 입력해 주세요");
 				return;
 			}
@@ -126,18 +128,15 @@
 				return;
 			}
 			
-			let formData = new FormData();
-			formData.append("bankType",bankType);
-			formData.append("cardNumber",cardNum);
-			formData.append("validMonth",valMonth);
-			formData.append("validYear",valYear);
-			formData.append("cardPassword",cardPw);
-			
 			
 			$.ajax({
 				type:"post"
 				, url:"/user/payment"
-				, data:formData
+				, data:{"bankType" : bankType
+						, "cardNumber" : cardNumber
+						, "validMonth" : valMonth
+						, "validYear" : valYear
+						, "cardPassword" : cardPw}
 				, success:function(data){
 					if(data.result == "success"){
 						alert("성공");
@@ -149,15 +148,7 @@
 					alert("에러");
 				}
 			});
-			
-			
-			
 		});
-		
-
-		
-		
-		
 	});
 	
 	

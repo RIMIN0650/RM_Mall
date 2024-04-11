@@ -21,7 +21,7 @@ public class PaymentService {
 		Payment payment = Payment.builder()
 							.userId(userId)
 							.bankType(bankType)
-							.cardNubmer(cardNumber)
+							.cardNumber(cardNumber)
 							.validMonth(validMonth)
 							.validYear(validYear)
 							.cardPassword(cardPassword)

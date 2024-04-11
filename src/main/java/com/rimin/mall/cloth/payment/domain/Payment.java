@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Table(name="user")
+@Table(name="payment")
 @Entity
 public class Payment {
 	
@@ -33,7 +33,7 @@ public class Payment {
 	private String bankType;
 	
 	@Column(name="cardNumber")
-	private String cardNubmer;
+	private String cardNumber;
 	
 	@Column(name="validMonth")
 	private int validMonth;
