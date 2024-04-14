@@ -12,11 +12,11 @@ public class SecureRandom {
 //	}
 	
 	
-	void createSecureRandom() {
-		SecureRandom random = SecureRandom.getInstanceStrong();
-		
-	}
-	
+//	void createSecureRandom() {
+//		SecureRandom random = SecureRandom.getInstanceStrong();
+//		
+//	}
+//	
 	
 	
 }
