@@ -1,4 +1,4 @@
-package com.rimin.mall.cloth.payment;
+package com.rimin.mall.payment;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rimin.mall.cloth.payment.domain.Payment;
-import com.rimin.mall.cloth.payment.service.PaymentService;
+import com.rimin.mall.payment.domain.Payment;
+import com.rimin.mall.payment.service.PaymentService;
 
 import jakarta.servlet.http.HttpSession;
 @RestController

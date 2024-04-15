@@ -1,10 +1,14 @@
 package com.rimin.mall.cloth.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rimin.mall.cloth.domain.Cloth;
 import com.rimin.mall.cloth.domain.Size;
+import com.rimin.mall.cloth.dto.ClothDetail;
 import com.rimin.mall.cloth.repository.ClothRepository;
 import com.rimin.mall.cloth.repository.SizeRepository;
 
@@ -86,4 +90,32 @@ public class ClothService {
 		
 		return cloth;
 	}
+	
+	
+	
+
+	public List<ClothDetail> getClothDetail(){
+		
+		List<Cloth> clothList = clothRepository.findAll();
+		
+		List<ClothDetail> clothDetailList = new ArrayList<>();
+		
+		for(Cloth cloth:clothList) {
+			int clothId = cloth.getId(); // cloth의 primary key 가져오기
+
+			ClothDetail clothDetail = ClothDetail.builder()
+										.clothName(cloth.getClothName())
+										.clothId(clothId)
+										.clothImageUrl(cloth.getClothImagePath())
+										.clothPrice(cloth.getClothPrice())
+										.build();
+										
+			clothDetailList.add(clothDetail);
+		
+		}
+		
+		return clothDetailList;
+	}
+	
+
 }

@@ -1,10 +1,10 @@
-package com.rimin.mall.cloth.payment.service;
+package com.rimin.mall.payment.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rimin.mall.cloth.payment.domain.Payment;
-import com.rimin.mall.cloth.payment.repository.PaymentRepository;
+import com.rimin.mall.payment.domain.Payment;
+import com.rimin.mall.payment.repository.PaymentRepository;
 @Service
 public class PaymentService {
 	

@@ -1,4 +1,4 @@
-package com.rimin.mall.cloth.payment;
+package com.rimin.mall.payment;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -41,16 +41,10 @@
 					<h2 class="text-center my-3">Popular products</h2>
 					<div class="autoplay my-3">
 	
-						<div class="hot-product bg-success mt-3 mx-3"><img src="https://cdn.pixabay.com/photo/2024/02/15/15/29/crocus-8575610_1280.jpg" height="100%"></div>
-						<div class="hot-product bg-success mt-3 mx-3"><img src="https://cdn.pixabay.com/photo/2017/08/01/08/29/woman-2563491_640.jpg" height="100%"></div>
-						<div class="hot-product bg-success mt-3 mx-3"><img src="https://cdn.pixabay.com/photo/2017/08/01/11/48/woman-2564660_640.jpg" height="100%"></div>
-						<div class="hot-product bg-success mt-3 mx-3"><img src="https://cdn.pixabay.com/photo/2013/11/14/12/34/neckties-210347_640.jpg" height="100%"></div>
-						<div class="hot-product bg-success mt-3 mx-3"><img src="https://cdn.pixabay.com/photo/2016/11/29/09/19/baby-1868683_640.jpg" height="100%"></div>
-						<div class="hot-product bg-success mt-3 mx-3"><img src="https://cdn.pixabay.com/photo/2018/03/12/22/15/clothing-3221103_640.jpg" height="100%"></div>
-						<div class="hot-product bg-success mt-3 mx-3"><img src="https://cdn.pixabay.com/photo/2016/03/27/19/31/fashion-1283863_640.jpg" height="100%"></div>
-						<div class="hot-product bg-success mt-3 mx-3"><img src="https://cdn.pixabay.com/photo/2020/02/05/11/06/woman-4820889_640.jpg" height="100%"></div>
-						<div class="hot-product bg-success mt-3 mx-3"><img src="https://cdn.pixabay.com/photo/2023/11/04/04/45/woman-8364265_640.jpg" height="100%"></div>
-						<div class="hot-product bg-success mt-3 mx-3"><img src="https://cdn.pixabay.com/photo/2018/12/05/13/41/woman-3857758_640.jpg" height="100%"></div>
+						<c:forEach var="cloth" items="${clothList }">
+							<div class="hot-product bg-success mt-3 mx-3"><img src="${cloth.clothImageUrl }" width="100%"></div>
+						</c:forEach>
+						
 	
 	
 					</div>
@@ -64,38 +58,16 @@
 					</div>
 					
 					<div class="product-list d-flex flex-wrap justify-content-between">
+						
+						
+						<c:forEach var="cloth" items="${clothList }">
 						<div class="products mt-3 mx-2">
-							<img src="https://cdn.pixabay.com/photo/2018/03/12/22/15/clothing-3221103_640.jpg" height="50%" class="mb-2">
-							<div class="ml-1"><b>르코르 데님 와이드팬츠</b></div>
-							<div class="cloth-info ml-2 mt-2">
-								<div>잔여 사이즈 : S M L XL</div>
-								<div><del>KRW 129,000 ₩</del>&nbsp;&nbsp;97,000 ₩</div>
-							</div>
+							<img src="${cloth.clothImageUrl }" width="100%">	
+							<div class="my-1 ml-1">${cloth.clothName }</div>
+							<div style="font-size:12px" class="ml-1">${cloth.clothPrice }₩</div>
 						</div>
-						<div class="products mt-3 mx-2">
-							<img src="https://cdn.pixabay.com/photo/2018/03/12/22/15/clothing-3221103_640.jpg" height="50%" class="mb-2">
-							<div class="ml-1"><b>르코르 데님 와이드팬츠</b></div>
-							<div class="cloth-info ml-2 mt-2">
-								<div>잔여 사이즈 : S M L XL</div>
-								<div><del>KRW 129,000 ₩</del>&nbsp;&nbsp;97,000 ₩</div>
-							</div>
-						</div>
-						<div class="products mt-3 mx-2">
-							<img src="https://cdn.pixabay.com/photo/2018/03/12/22/15/clothing-3221103_640.jpg" height="50%" class="mb-2">
-							<div class="ml-1"><b>르코르 데님 와이드팬츠</b></div>
-							<div class="cloth-info ml-2 mt-2">
-								<div>잔여 사이즈 : S M L XL</div>
-								<div><del>KRW 129,000 ₩</del>&nbsp;&nbsp;97,000 ₩</div>
-							</div>
-						</div>
-						<div class="products mt-3 mx-2">
-							<img src="https://cdn.pixabay.com/photo/2018/03/12/22/15/clothing-3221103_640.jpg" height="50%" class="mb-2">
-							<div class="ml-1"><b>르코르 데님 와이드팬츠</b></div>
-							<div class="cloth-info ml-2 mt-2">
-								<div>잔여 사이즈 : S M L XL</div>
-								<div><del>KRW 129,000 ₩</del>&nbsp;&nbsp;97,000 ₩</div>
-							</div>
-						</div>
+						</c:forEach>
+						
 	
 					
 						

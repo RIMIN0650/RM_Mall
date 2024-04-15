@@ -1,4 +1,4 @@
-package com.rimin.mall.cloth.payment.domain;
+package com.rimin.mall.payment.domain;
 
 import java.util.Date;
 
