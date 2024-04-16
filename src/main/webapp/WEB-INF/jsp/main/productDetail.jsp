@@ -40,15 +40,15 @@
 						</div>
 						<div id="clothDetailDetail" class="mt-3">
 							<div>
-								제품 상세정보 제품 상세정보 제품 상세정보 제품 상세정보 제품 상세정보 제품 상세정보 제품 상세정보
+								${clothInfo.clothInfo }
 							</div>
 						</div>
 					</div>
 					<!-- 상품 상세정보 -->
 					<div class="ml-5">
 						<div>
-							<h2>상품명</h2>
-							<h5>₩10,000</h5>
+							<h2>${clothInfo.clothName }</h2>
+							<h5>${clothInfo.clothPrice }</h5>
 							<div class="mt-3">잔여 사이즈</div>
 							<hr>
 							<select class="selectpicker" data-width="200px" id="selectSize">

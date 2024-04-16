@@ -61,7 +61,7 @@
 						
 						
 						<c:forEach var="cloth" items="${clothList }">
-						<a href="http://www.naver.com" class="text-dark">
+						<a href="/main/clothes-detail?id=${cloth.clothId }" class="text-dark">
 						<div class="products mt-3 mx-2" style=" cursor: pointer;">
 							<img src="${cloth.clothImageUrl }" width="100%">	
 							<div class="my-1 ml-1">${cloth.clothName }</div>

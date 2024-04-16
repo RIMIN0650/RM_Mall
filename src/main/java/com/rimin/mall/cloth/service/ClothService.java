@@ -2,6 +2,7 @@ package com.rimin.mall.cloth.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -93,7 +94,7 @@ public class ClothService {
 	
 	
 	
-
+	// 메인 페이지에 옷 보여주기
 	public List<ClothDetail> getClothDetail(){
 		
 		List<Cloth> clothList = clothRepository.findAll();
@@ -116,6 +117,18 @@ public class ClothService {
 		
 		return clothDetailList;
 	}
+	
+	
+	
+	// 옷 하나 클릭했을 때 상세정보 보여주기
+	public Cloth getClothInfo(int id) {
+		Optional<Cloth> optionalCloth = clothRepository.findById(id);
+		
+		Cloth cloth = optionalCloth.orElse(null);
+		return cloth;
+		
+	}
+	
 	
 
 }
