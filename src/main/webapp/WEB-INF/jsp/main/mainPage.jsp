@@ -65,7 +65,7 @@
 						<div class="products mt-3 mx-2" style=" cursor: pointer;">
 							<img src="${cloth.clothImageUrl }" width="100%">	
 							<div class="my-1 ml-1">${cloth.clothName }</div>
-							<div style="font-size:12px" class="ml-1">${cloth.clothPrice }₩</div>
+							<div style="font-size:12px" class="ml-1">₩${cloth.clothPrice }</div>
 						</div>
 						</a>
 						</c:forEach>

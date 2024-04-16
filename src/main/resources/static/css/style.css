@@ -34,13 +34,10 @@ header{
 	width:100px;
 }
 
-section{
-	height:1000px;
-}
 
 .main-menu{
 	width:200px;
-	height:800px;
+
 }
 
 a{
@@ -56,7 +53,7 @@ li:hover{
 
 .main-contents{
 	width:1000px;
-	height:800px;
+
 }
 
 #popular-product{
