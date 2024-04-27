@@ -121,13 +121,14 @@
 			chooseSize = size;
 		});
 		
-		
-		
-		
-		
+	
 		
 		$("#addCartBtn").on("click",function(){
-			alert(chooseSize);
+			if(chooseSize == 0){
+				alert("사이즈를 선택하세요");
+			}
+			else
+				alert("장바구니에 담겼습니다");
 		});
 		
 		

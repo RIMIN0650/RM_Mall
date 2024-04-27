@@ -49,10 +49,5 @@ public class UserService {
 		return userRepository.findByLoginIdAndPassword(loginId, loginPw);
 	}
 	
-	// 장바구니 담는 기능
-//	public User addCart(int userId, int clothId, String productSize, int productCount) {
-//		
-//	}
-	
 
 }
