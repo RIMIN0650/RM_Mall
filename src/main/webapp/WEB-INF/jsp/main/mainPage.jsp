@@ -42,7 +42,7 @@
 					<div class="autoplay my-3">
 	
 						<c:forEach var="cloth" items="${clothList }">
-							<div class="hot-product bg-success mt-3 mx-3"><img src="${cloth.clothImageUrl }" width="100%"></div>
+							<div class="hot-product mt-3 mx-3"><a href="/main/clothes-detail?id=${cloth.clothId }"><img src="${cloth.clothImageUrl }" width="100%"></a></div>
 						</c:forEach>
 						
 	
