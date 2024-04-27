@@ -8,7 +8,8 @@ import com.rimin.mall.payment.repository.PaymentRepository;
 @Service
 public class PaymentService {
 	
-	@Autowired PaymentRepository paymentRepository;
+	@Autowired 
+	private PaymentRepository paymentRepository;
 	
 	// 결제 정보 저장
 	public Payment savePayment(

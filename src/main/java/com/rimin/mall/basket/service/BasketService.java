@@ -5,9 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.rimin.mall.basket.domain.Basket;
 import com.rimin.mall.basket.repository.BasketRepository;
-import com.rimin.mall.user.domain.User;
-
-
 
 @Service
 public class BasketService {
@@ -17,10 +14,10 @@ public class BasketService {
 	private BasketRepository basketRepository;
 	
 	// 장바구니 담는 기능
-	public Basket addCart(int userId, int clothId, String clothSize, int clothCount) {
+	public Basket addCart(int userId, String clothName, String clothSize, int clothCount) {
 		Basket basket = Basket.builder()
 							.userId(userId)
-							.clothId(clothId)
+							.clothName(clothName)
 							.clothSize(clothSize)
 							.clothCount(clothCount)
 							.clothStatus("주문대기")
@@ -28,5 +25,4 @@ public class BasketService {
 		return basketRepository.save(basket);
 	}
 	
-
 }

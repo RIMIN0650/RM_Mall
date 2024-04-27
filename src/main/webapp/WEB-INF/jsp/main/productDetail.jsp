@@ -96,7 +96,6 @@
 	$(document).ready(function(){
 		let chooseSize = 0;
 		let cnt;
-		
 		$("#incCntBtn").on("click",function(){
 			cnt = $("#productCnt").val();
 			cnt++;
@@ -124,11 +123,35 @@
 	
 		
 		$("#addCartBtn").on("click",function(){
+			
+			var clothName = "${clothInfo.clothName }"
+			
+			alert(clothName);
 			if(chooseSize == 0){
 				alert("사이즈를 선택하세요");
+				return;
 			}
-			else
-				alert("장바구니에 담겼습니다");
+			
+			$.ajax({
+				type:"post"
+				, url:"/user/add-basket"
+				, data:{"clothName" : "${clothInfo.clothName }"
+						, "clothSize" : chooseSize
+						, "clothCount" : cnt}
+				, success:function(data){
+					if(data.result == "success"){
+						alert("성공");
+					} else {
+						alert("실패");
+					}
+				}
+				, error:function(){
+					alert("에러");
+				}
+				
+			});
+			
+		
 		});
 		
 		

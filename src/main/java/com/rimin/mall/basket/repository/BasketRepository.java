@@ -6,4 +6,5 @@ import com.rimin.mall.basket.domain.Basket;
 
 public interface BasketRepository extends JpaRepository <Basket,Integer> {
 
+	
 }

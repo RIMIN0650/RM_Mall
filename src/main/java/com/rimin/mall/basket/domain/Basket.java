@@ -4,8 +4,6 @@ import java.util.Date;
 
 import org.hibernate.annotations.UpdateTimestamp;
 
-import com.rimin.mall.cloth.domain.Cloth;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,8 +29,8 @@ public class Basket {
 	@Column(name="userId")
 	private int userId;
 	
-	@Column(name="clothId")
-	private int clothId;
+	@Column(name="clothName")
+	private String clothName;
 	
 	@Column(name="clothSize")
 	private String clothSize;

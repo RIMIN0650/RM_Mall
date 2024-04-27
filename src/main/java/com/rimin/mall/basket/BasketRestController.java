@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.rimin.mall.basket.domain.Basket;
 import com.rimin.mall.basket.service.BasketService;
 
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @RestController
@@ -22,16 +21,16 @@ public class BasketRestController {
 	
 	//사용자 장바구니에 담는 기능
 	@PostMapping("/user/add-basket")
-	public Map<String, String> addBasket(@RequestParam("clothId") int clothId
+	public Map<String, String> addBasket(@RequestParam("clothName") String clothName
 									, @RequestParam("clothSize") String clothSize
 									, @RequestParam("clothCount") int clothCount
-									, HttpServletRequest request){
+									, HttpSession session){
 		
-		HttpSession session = request.getSession();
+		
 		// userId는 세션에 저장되어있으므로 파라미터로 전달받지 않고 세션에 저장된 값 불러오기
 		int userId = (Integer)session.getAttribute("userId");
 		
-		Basket basket = basketService.addCart(userId, clothId, clothSize, clothCount);
+		Basket basket = basketService.addCart(userId, clothName, clothSize, clothCount);
 		
 		Map<String, String> resultMap = new HashMap<>();
 		
