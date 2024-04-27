@@ -36,7 +36,7 @@
 				<div class="d-flex justify-content-between">
 					<div class="ml-3">
 						<div>
-							<img src="https://cdn.pixabay.com/photo/2017/08/01/11/48/woman-2564660_1280.jpg" width="500">
+							<img src="${clothInfo.clothImagePath }" width="500">
 						</div>
 						<div id="clothDetailDetail" class="mt-3">
 							<div>
@@ -49,7 +49,7 @@
 						<div>
 							<h2>${clothInfo.clothName }</h2>
 							<h5>${clothInfo.clothPrice }</h5>
-							<div class="mt-3">잔여 사이즈</div>
+							
 							<hr>
 							<select class="selectpicker" data-width="200px" id="selectSize">
 								  <option value="0" selected>사이즈 선택</option>

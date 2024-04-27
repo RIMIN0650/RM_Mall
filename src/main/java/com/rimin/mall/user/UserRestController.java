@@ -85,19 +85,19 @@ public class UserRestController {
 
 	
 	// 사용자 장바구니에 담는 기능
-	@PostMapping("/user/add-basket")
-	public Map<String, String> addBasket(@RequestParam("clothId") int clothId
-									, @RequestParam("productSize") String productSize
-									, @RequestParam("productCount") int productCount
-									, HttpServletRequest request){
-		
-		HttpSession session = request.getSession();
-		// userId는 세션에 저장되어있으므로 파라미터로 전달받지 않고 세션에 저장된 값 불러오기
-		int userId = (Integer)session.getAttribute("userId");
-		
-		
-		
-	}
+//	@PostMapping("/user/add-basket")
+//	public Map<String, String> addBasket(@RequestParam("clothId") int clothId
+//									, @RequestParam("productSize") String productSize
+//									, @RequestParam("productCount") int productCount
+//									, HttpServletRequest request){
+//		
+//		HttpSession session = request.getSession();
+//		// userId는 세션에 저장되어있으므로 파라미터로 전달받지 않고 세션에 저장된 값 불러오기
+//		int userId = (Integer)session.getAttribute("userId");
+//		
+//		
+//		
+//	}
 	
 	
 }
