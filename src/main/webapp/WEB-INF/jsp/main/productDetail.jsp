@@ -95,7 +95,7 @@
 	
 	$(document).ready(function(){
 		let chooseSize = 0;
-		let cnt;
+		let cnt = 1;
 		$("#incCntBtn").on("click",function(){
 			cnt = $("#productCnt").val();
 			cnt++;

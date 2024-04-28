@@ -40,13 +40,9 @@
 				<div id="popular-product">
 					<h2 class="text-center my-3">Popular products</h2>
 					<div class="autoplay my-3">
-	
 						<c:forEach var="cloth" items="${clothList }">
 							<div class="hot-product mt-3 mx-3"><a href="/main/clothes-detail?id=${cloth.clothId }"><img src="${cloth.clothImageUrl }" width="100%"></a></div>
 						</c:forEach>
-						
-	
-	
 					</div>
 				</div>
 				<!-- /popular box -->
@@ -56,10 +52,7 @@
 					<div class="d-flex justify-content-center align-items-end product-text mt-2">
 					<h4>our products</h4>
 					</div>
-					
 					<div class="product-list d-flex flex-wrap justify-content-between">
-						
-						
 						<c:forEach var="cloth" items="${clothList }">
 						<a href="/main/clothes-detail?id=${cloth.clothId }" class="text-dark">
 						<div class="products mt-3 mx-2" style=" cursor: pointer;">
@@ -68,13 +61,7 @@
 							<div style="font-size:12px" class="ml-1">₩${cloth.clothPrice }</div>
 						</div>
 						</a>
-						</c:forEach>
-						
-	
-					
-						
-						
-						
+						</c:forEach>			
 					</div>					
 				</div>
 				<!-- /product list -->
