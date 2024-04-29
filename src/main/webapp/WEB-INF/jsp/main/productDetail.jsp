@@ -31,6 +31,7 @@
 					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">악세서리</h5></li>
 				</ul>
 				<button type="button" class="btn"><a href="/user/save/payment">결제 정보 추가</a></button>
+				<button type="button" class="btn"><a href="/basket/list-view">나의 장바구니</a></button>
 			</nav>
 			<article>
 				<div class="d-flex justify-content-between">
@@ -68,7 +69,7 @@
 						</div>
 						</div>
 						<div>
-							<button type="button" class="btn btn-secondary col-12 mt-3" id="addCartBtn">장바구니</button>
+							<button type="button" class="btn btn-secondary col-12 mt-3" id="addCartBtn">장바구니에 담기</button>
 						</div>
 						<div>
 							<button type="button" class="btn btn-danger col-12 mt-3"><a href="/main/home" class="text-white">돌아가기</a></button>

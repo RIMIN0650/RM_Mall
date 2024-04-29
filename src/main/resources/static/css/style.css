@@ -8,6 +8,13 @@
 header{
 	height:160px;
 }
+#rmMallMark{
+	text-decoration: none;
+}
+
+a:link {
+	text-decoration: none;
+}
 
 .logo{
 	height:150px;

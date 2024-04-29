@@ -4,10 +4,10 @@
     
 	<header class="d-flex">
 		<div class="logo d-flex justify-content-start align-items-center pl-1">
-			<img src="/static/images/RMmall.png" class="rounded-2 mt-1" height="150">
+			<a href="/main/home" class="text-white"><img src="/static/images/RMmall.png" class="rounded-2 mt-1" height="150"></a>
 		</div>
 		<div class="title">
-			<h1 class="display-3">RM Shop</h1>
+			<div class="display-3" style="text-decoration: none;" id="rmMallMark"><a href="/main/home" class="text-dark" >RM Mall</a></div>
 			<div id="banner" class="mt-4">
 				<div class="d-flex searchClothes justify-content-end">
 					<div class="d-flex">
@@ -19,7 +19,6 @@
 							<div class="ml-5">
 								<a href="/user/login" class="btn btn-outline-success">로그인</a>
 								<a href="/user/join" class="btn btn-outline-success ml-3">회원가입</a>
-								
 							</div>
 						</c:when>
 						<c:otherwise>
@@ -31,11 +30,9 @@
 					</c:choose>
 				</div>
 			</div>			
-			
 		</div>
-		
 	</header>
 
-	
+
 </body>
 </html>
