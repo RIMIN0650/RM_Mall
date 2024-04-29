@@ -91,6 +91,7 @@
 					, data:{"id" : basketId}
 					, success:function(data){
 						if(data.result == "success"){
+							alert("주문 완료! 감사합니다.");
 							location.reload();							
 						} else {
 							alert("주문 실패");

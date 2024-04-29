@@ -25,17 +25,32 @@ public class BasketService {
 	
 	// 장바구니 담는 기능
 	public Basket addCart(int userId, String clothName, String clothSize, int clothCount) {
-		Basket basket = Basket.builder()
+		
+		
+		Optional<Basket> optionalBasket = basketRepository.findByUserIdAndClothNameAndClothSize(userId, clothName, clothSize);
+		Basket basket = optionalBasket.orElse(null);
+		
+		if(basket != null) {
+			basket = basket.toBuilder()
+					.clothCount(clothCount + basket.getClothCount())
+					.build();
+		return basketRepository.save(basket);
+		
+		} else {
+		
+			basket = Basket.builder()
 							.userId(userId)
 							.clothName(clothName)
 							.clothSize(clothSize)
 							.clothCount(clothCount)
-							.clothStatus("주문대기")
+							.clothStatus("장바구니")
 							.build();
 		return basketRepository.save(basket);
+		}
 	}
 	
 	
+	// 사용자별 장바구니 조회 기능
 	public List<BasketDetail> getBasketList(int loginUserId){
 		
 		List<Basket> basketList = basketRepository.findByUserIdOrderByIdDesc(loginUserId);
@@ -46,7 +61,6 @@ public class BasketService {
 		
 		for(Basket basket:basketList) {
 			
-			int userId = basket.getUserId();
 			
 			Cloth cloth = clothRepository.findByClothName(basket.getClothName());
 			
