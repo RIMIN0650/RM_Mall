@@ -30,7 +30,7 @@ public class BasketService {
 		Optional<Basket> optionalBasket = basketRepository.findByUserIdAndClothNameAndClothSize(userId, clothName, clothSize);
 		Basket basket = optionalBasket.orElse(null);
 		
-		if(basket != null) {
+		if(basket != null && !"주문 완료".equals(basket.getClothStatus())) {
 			basket = basket.toBuilder()
 					.clothCount(clothCount + basket.getClothCount())
 					.build();
