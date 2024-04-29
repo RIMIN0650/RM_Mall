@@ -137,6 +137,9 @@ label{
 	width:1000px;
 }
 
+.align-right{
+	text-align : right;
+}
 
 footer{
 	width:1200px;

@@ -58,7 +58,7 @@
 									<td>${basket.clothPrice }</td>
 									<td>${basket.clothCount }</td>
 									<td>${basket.clothStatus }</td>
-									<c:set var="totalPrice" value="${value + basket.clothPrice * basket.clothCount }" />								
+									<c:set var="totalPrice" value="${totalPrice + basket.clothPrice * basket.clothCount }" />						
 									<td><button type="button" class="btn btn-sm btn-success orderBtn" data-basket-id="${basket.id }">주문</button></td>
 									<td><button type="button" class="btn btn-sm btn-warning deleteBtn" data-basket-id="${basket.id }">취소</button></td>
 								</tr>	
@@ -67,9 +67,9 @@
 						</tbody>
 					</table>
 					
-					<div>${totalPrice }</div>
+					<h5 class="align-right">총 금액 &nbsp; : &nbsp;  ${totalPrice } 원</h5>
 					
-					<div class="d-flex justify-content-between mx-3">
+					<div class="d-flex justify-content-between ml-3 mt-3">
 						<button type="button" class="btn btn-outline-info"><a href="/main/home">돌아가기</a></button>
 						<button type="button" class="btn btn-outline-success" id="orderBtn">주문하기</button>
 					</div>
@@ -125,6 +125,10 @@
 	
 	<script>
 		$(document).ready(function(){
+			
+			
+			
+			
 			
 			$(".orderBtn").on("click",function(){
 				let basketId = $(this).data("basket-id");
