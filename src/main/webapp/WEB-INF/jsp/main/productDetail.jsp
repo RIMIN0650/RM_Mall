@@ -126,7 +126,6 @@
 			
 			var clothName = "${clothInfo.clothName }"
 			
-			alert(clothName);
 			if(chooseSize == 0){
 				alert("사이즈를 선택하세요");
 				return;
@@ -140,7 +139,7 @@
 						, "clothCount" : cnt}
 				, success:function(data){
 					if(data.result == "success"){
-						alert("성공");
+						alert("장바구니에 담겼습니다!");
 					} else {
 						alert("실패");
 					}

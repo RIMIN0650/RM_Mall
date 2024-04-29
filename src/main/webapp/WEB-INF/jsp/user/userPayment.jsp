@@ -25,6 +25,7 @@
 					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">드레스</h5></li>
 					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">악세서리</h5></li>
 				</ul>
+				<button type="button" class="btn"><a href="/basket/list-view">장바구니</a></button>
 			</nav>
 			<div class="d-flex justify-content-center">
 				<div class="my-3 ml-5">

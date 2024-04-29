@@ -1,5 +1,7 @@
 package com.rimin.mall.basket.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,4 +27,9 @@ public class BasketService {
 		return basketRepository.save(basket);
 	}
 	
+	
+	
+	public List<Basket> getBasketList(int userId){
+		return basketRepository.findByUserIdOrderByIdDesc(userId);
+	}
 }

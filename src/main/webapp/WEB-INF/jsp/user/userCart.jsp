@@ -28,10 +28,36 @@
 					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">악세서리</h5></li>
 				</ul>
 				<button type="button" class="btn"><a href="/user/save/payment">결제 정보 추가</a></button>
+				<button type="button" class="btn"><a href="/basket/list-view">장바구니</a></button>
 			</nav>
 			<article>
-			
+				<table class="table text-center" id="basketList">
+					<thead>
+						<tr>
+							<th>제품명</th>
+							<th>사이즈</th>
+							<th>수량</th>
+							<th>주문상태</th>
+							<th>삭제</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="basket" items="${basketList }">
+							<tr>
+								<td>${basket.clothName }</td>
+								<td>${basket.clothSize }</td>
+								<td>${basket.clothCount }</td>
+								<td>${basket.clothStatus }</td>
+								<td><button type="button" class="btn btn-sm btn-warning">삭제</button></td>
+							</tr>	
+						</c:forEach>
+					</tbody>
+				</table>
+				<div class="d-flex justify-content-end">
+					<button type="button" class="btn btn-outline-info"><a href="/main/home">돌아가기</a></button>
+				</div>
 			</article>
+			
 		</section>
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
