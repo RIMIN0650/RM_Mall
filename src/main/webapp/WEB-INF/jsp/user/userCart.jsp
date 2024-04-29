@@ -33,6 +33,7 @@
 			<article>
 				<!-- 주문하기 전 장바구니 목록 -->
 				<div>
+					<c:set var="totalPrice" value="0"/>
 					<h3 class="ml-1">나의 장바구니 목록</h3>
 					<table class="table text-center" id="basketList">
 						<thead>
@@ -49,14 +50,15 @@
 						</thead>
 						<tbody>
 							<c:forEach var="basket" items="${basketList }">
-							<c:if test="${basket.clothStatus =='장바구니' }">
+							<c:if test="${basket.clothStatus == '장바구니' }">
 								<tr>
 									<td><input type="checkbox" id="${basket.id }"></td>
 									<td>${basket.clothName }</td>
 									<td>${basket.clothSize }</td>
 									<td>${basket.clothPrice }</td>
 									<td>${basket.clothCount }</td>
-									<td>${basket.clothStatus }</td>								
+									<td>${basket.clothStatus }</td>
+									<c:set var="totalPrice" value="${value + basket.clothPrice * basket.clothCount }" />								
 									<td><button type="button" class="btn btn-sm btn-success orderBtn" data-basket-id="${basket.id }">주문</button></td>
 									<td><button type="button" class="btn btn-sm btn-warning deleteBtn" data-basket-id="${basket.id }">취소</button></td>
 								</tr>	
@@ -64,6 +66,9 @@
 							</c:forEach>
 						</tbody>
 					</table>
+					
+					<div>${totalPrice }</div>
+					
 					<div class="d-flex justify-content-between mx-3">
 						<button type="button" class="btn btn-outline-info"><a href="/main/home">돌아가기</a></button>
 						<button type="button" class="btn btn-outline-success" id="orderBtn">주문하기</button>
