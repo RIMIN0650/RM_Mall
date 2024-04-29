@@ -34,29 +34,34 @@
 				<table class="table text-center" id="basketList">
 					<thead>
 						<tr>
+							<th>선택</th>
 							<th>제품명</th>
 							<th>사이즈</th>
 							<th>가격</th>
 							<th>수량</th>
 							<th>주문상태</th>
+							<th>주문</th>
 							<th>삭제</th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var="basket" items="${basketList }">
 							<tr>
+								<td><input type="checkbox" id="${basket.id }"></td>
 								<td>${basket.clothName }</td>
 								<td>${basket.clothSize }</td>
 								<td>${basket.clothPrice }</td>
 								<td>${basket.clothCount }</td>
-								<td>${basket.clothStatus }</td>
+								<td>${basket.clothStatus }</td>								
+								<td><button type="button" class="btn btn-sm btn-success orderBtn" data-basket-id="${basket.id }">주문</button></td>
 								<td><button type="button" class="btn btn-sm btn-warning deleteBtn" data-basket-id="${basket.id }">취소</button></td>
 							</tr>	
 						</c:forEach>
 					</tbody>
 				</table>
-				<div class="d-flex justify-content-end">
+				<div class="d-flex justify-content-between mx-3">
 					<button type="button" class="btn btn-outline-info"><a href="/main/home">돌아가기</a></button>
+					<button type="button" class="btn btn-outline-success" id="orderBtn">주문하기</button>
 				</div>
 			</article>
 			
@@ -76,6 +81,28 @@
 	
 	<script>
 		$(document).ready(function(){
+			
+			$(".orderBtn").on("click",function(){
+				let basketId = $(this).data("basket-id");
+				
+				$.ajax({
+					type:"put"
+					, url:"/basket/update"
+					, data:{"id" : basketId}
+					, success:function(data){
+						if(data.result == "success"){
+							location.reload();							
+						} else {
+							alert("주문 실패");
+						}
+					}
+					, error:function(){
+						alert("주문 에러");
+					}
+				});
+				
+				
+			});
 			
 			$(".deleteBtn").on("click",function(){
 								

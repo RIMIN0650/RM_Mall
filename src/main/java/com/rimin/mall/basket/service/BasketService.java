@@ -54,7 +54,7 @@ public class BasketService {
 										.id(basket.getId())
 										.clothName(cloth.getClothName())
 										.clothSize(basket.getClothSize())
-										.clothStatus("장바구니")
+										.clothStatus(basket.getClothStatus())
 										.clothCount(basket.getClothCount())
 										.clothPrice(cloth.getClothPrice())
 										.build();
@@ -65,7 +65,7 @@ public class BasketService {
 		return basketDetailList;
 	}
 
-	
+	// 주문목록 삭제
 	public Basket deleteBasket(int id) {
 		
 		Optional<Basket> optionalBasket = basketRepository.findById(id);
@@ -76,6 +76,23 @@ public class BasketService {
 			basketRepository.delete(basket);
 		}
 		
+		return basket;
+	}
+	
+	
+	// 주문대기 > 주문완료 & 접수대기
+	public Basket updateStatus(int id) {
+		
+		Optional<Basket> optionalBasket = basketRepository.findById(id);
+		Basket basket = optionalBasket.orElse(null);
+		
+		if(basket != null) {
+			basket = basket.toBuilder()
+					.clothStatus("주문 완료 & 접수 대기")
+					.build();
+					
+			basket = basketRepository.save(basket);
+		}
 		return basket;
 	}
 	
