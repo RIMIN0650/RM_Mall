@@ -2,6 +2,7 @@ package com.rimin.mall.basket.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,6 +51,7 @@ public class BasketService {
 			Cloth cloth = clothRepository.findByClothName(basket.getClothName());
 			
 			BasketDetail basketDetail = BasketDetail.builder()
+										.id(basket.getId())
 										.clothName(cloth.getClothName())
 										.clothSize(basket.getClothSize())
 										.clothStatus("장바구니")
@@ -63,4 +65,19 @@ public class BasketService {
 		return basketDetailList;
 	}
 
+	
+	public Basket deleteBasket(int id) {
+		
+		Optional<Basket> optionalBasket = basketRepository.findById(id);
+		Basket basket = optionalBasket.orElse(null);
+		
+		
+		if(basket != null) {
+			basketRepository.delete(basket);
+		}
+		
+		return basket;
+	}
+	
+	
 }

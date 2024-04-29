@@ -6,6 +6,7 @@ import lombok.Getter;
 @Builder
 @Getter
 public class BasketDetail {
+	private int id;
 	private int userId;
 	private int clothId;
 	private String clothName;

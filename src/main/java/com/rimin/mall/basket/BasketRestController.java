@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,7 +45,20 @@ public class BasketRestController {
 	}
 	
 	
-	
+	// 장바구니 목록 지우기
+	@DeleteMapping("/basket/delete")
+	public Map<String, String> deleteBasket(@RequestParam("id") int id){
+		
+		Basket basket = basketService.deleteBasket(id);
+		
+		Map<String, String> resultMap = new HashMap<>();
+		if(basket != null) {
+			resultMap.put("result", "success");
+		} else {
+			resultMap.put("result","fail");
+		}
+		return resultMap;
+	}
 	
 	
 	
