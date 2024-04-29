@@ -1,11 +1,13 @@
 package com.rimin.mall.basket.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rimin.mall.basket.domain.Basket;
+import com.rimin.mall.basket.dto.BasketDetail;
 import com.rimin.mall.basket.repository.BasketRepository;
 
 @Service
@@ -28,8 +30,19 @@ public class BasketService {
 	}
 	
 	
-	
-	public List<Basket> getBasketList(int userId){
-		return basketRepository.findByUserIdOrderByIdDesc(userId);
+	public List<BasketDetail> getBasketList(int loginUserId){
+		
+		List<Basket> basketList = basketRepository.findByUserIdOrderByIdDesc(loginUserId);
+		
+		List<BasketDetail> basketDetailList = new ArrayList<>();
+		
+		for(Basket basket:basketList) {
+			
+			int userId = basket.getUserId();
+			
+			int price = 
+		}
+		
 	}
+
 }

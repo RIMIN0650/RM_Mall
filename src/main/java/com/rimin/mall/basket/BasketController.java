@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.rimin.mall.basket.domain.Basket;
+import com.rimin.mall.basket.dto.BasketDetail;
 import com.rimin.mall.basket.service.BasketService;
 
 import jakarta.servlet.http.HttpSession;
@@ -33,7 +33,7 @@ public class BasketController {
 			// 로그인한 사용자 PK 받아서 장바구니 조회
 			int userId = (Integer)session.getAttribute("userId");
 			
-			List<Basket> basketList = basketService.getBasketList(userId);
+			List<BasketDetail> basketList = basketService.getBasketList(userId);
 			
 			model.addAttribute("basketList", basketList);
 			
