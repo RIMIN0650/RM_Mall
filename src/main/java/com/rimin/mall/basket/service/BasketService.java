@@ -111,4 +111,29 @@ public class BasketService {
 	}
 	
 	
+	
+	// 여러 항목 주문 완료 상태로 
+	public List<Basket> updateMultipleStatus(List<Integer> ids) {
+		
+		List<Basket> updatedBaskets = new ArrayList<>();
+		
+		for(Integer basketId : ids) {
+			Optional<Basket> optionalBasket = basketRepository.findById(basketId);
+			Basket basket = optionalBasket.orElse(null);
+			
+			if(basket != null) {
+				basket= basket.toBuilder()
+						.clothStatus("주문 완료")
+						.build();
+				Basket updatedBasket =  basketRepository.save(basket);
+				updatedBaskets.add(updatedBasket);
+				
+			}
+		}
+		
+		return updatedBaskets;
+	}
+	
+	
+	
 }

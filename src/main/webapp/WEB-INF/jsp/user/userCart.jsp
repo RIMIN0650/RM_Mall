@@ -129,6 +129,40 @@
 			
 			
 			
+			$("#orderBtn").on("click",function(){
+				var checkedClothes = [];
+				
+				$("input[type=checkbox]:checked").each(function(){
+					checkedClothes.push($(this).attr('id'));
+				});
+				
+				if (checkedClothes.length === 0){
+					alert("주문할 상품을 선택해주세요");
+					return;
+				}
+				
+				alert(checkedClothes);
+				
+				$.ajax({
+					type:"put"
+					, url:"/basket/updateMultiple"
+					, data:{"ids" : checkedClothes}
+					, success:function(data){
+						if(data.result == "success"){
+							alert("주문 완료 ! 감사합니다 .");
+							location.reload();
+						} else {
+							alert("주문 실패");
+						}
+					}
+					, error:function(){
+						alert("주문 에러");
+					}
+				});
+				
+			});
+			
+			
 			
 			$(".orderBtn").on("click",function(){
 				let basketId = $(this).data("basket-id");

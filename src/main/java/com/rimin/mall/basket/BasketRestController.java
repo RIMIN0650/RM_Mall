@@ -1,6 +1,7 @@
 package com.rimin.mall.basket;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +75,21 @@ public class BasketRestController {
 		return resultMap;
 	}
 	
+	
+	// 체크박스로 한번에 주문 완료하기
+	@PutMapping("/basket/updateMultiple")
+	public Map<String, String> updateMultipleBasket(@RequestParam("ids[]") List<Integer> ids){
+		
+		List<Basket> basket = basketService.updateMultipleStatus(ids);
+		
+		Map<String, String> resultMap = new HashMap<>();
+		if(basket != null) {
+			resultMap.put("result", "success");
+		} else {
+			resultMap.put("result","fail");
+		}
+		return resultMap;
+	}
 	
 	
 }
