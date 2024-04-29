@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.rimin.mall.basket.domain.Basket;
 import com.rimin.mall.basket.dto.BasketDetail;
 import com.rimin.mall.basket.repository.BasketRepository;
+import com.rimin.mall.cloth.domain.Cloth;
+import com.rimin.mall.cloth.repository.ClothRepository;
 
 @Service
 public class BasketService {
@@ -16,6 +18,9 @@ public class BasketService {
 	
 	@Autowired 
 	private BasketRepository basketRepository;
+	
+	@Autowired
+	private ClothRepository clothRepository;
 	
 	// 장바구니 담는 기능
 	public Basket addCart(int userId, String clothName, String clothSize, int clothCount) {
@@ -34,15 +39,26 @@ public class BasketService {
 		
 		List<Basket> basketList = basketRepository.findByUserIdOrderByIdDesc(loginUserId);
 		
+		Cloth cloth = clothRepository.findAllByClothName(basket.getclothName);
+		
 		List<BasketDetail> basketDetailList = new ArrayList<>();
 		
 		for(Basket basket:basketList) {
 			
 			int userId = basket.getUserId();
 			
-			int price = 
+			BasketDetail basketDetail = BasketDetail.builder()
+										.clothName(cloth.getClothName())
+										.clothSize(basket.getClothName())
+										.clothStatus(null)
+										.clothCount(0)
+										.clothPrice(0)
+										.build();
+			
+			basketDetailList.add(basketDetail);
 		}
 		
+		return basketDetailList;
 	}
 
 }

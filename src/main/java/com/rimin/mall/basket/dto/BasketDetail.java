@@ -11,5 +11,6 @@ public class BasketDetail {
 	private String clothName;
 	private String clothSize;
 	private int clothCount;
+	private int clothPrice;
 	private String clothStatus;
 }
