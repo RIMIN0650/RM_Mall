@@ -27,10 +27,10 @@ public class BasketService {
 	public Basket addCart(int userId, String clothName, String clothSize, int clothCount) {
 		
 		
-		Optional<Basket> optionalBasket = basketRepository.findByUserIdAndClothNameAndClothSize(userId, clothName, clothSize);
+		Optional<Basket> optionalBasket = basketRepository.findByUserIdAndClothNameAndClothSizeAndClothStatus(userId, clothName, clothSize, "장바구니");
 		Basket basket = optionalBasket.orElse(null);
 		
-		if(basket != null && !"주문 완료".equals(basket.getClothStatus())) {
+		if(basket != null) {
 			basket = basket.toBuilder()
 					.clothCount(clothCount + basket.getClothCount())
 					.build();

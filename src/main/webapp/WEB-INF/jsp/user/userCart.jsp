@@ -127,8 +127,6 @@
 		$(document).ready(function(){
 			
 			
-			
-			
 			$("#orderBtn").on("click",function(){
 				var checkedClothes = [];
 				
@@ -140,8 +138,6 @@
 					alert("주문할 상품을 선택해주세요");
 					return;
 				}
-				
-				alert(checkedClothes);
 				
 				$.ajax({
 					type:"put"

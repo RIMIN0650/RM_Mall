@@ -11,7 +11,7 @@ public interface BasketRepository extends JpaRepository <Basket,Integer> {
 
 	public List<Basket> findByUserIdOrderByIdDesc(int userId);
 	
-	public Optional<Basket> findByUserIdAndClothNameAndClothSize(int userId, String clothName, String clothSize);
+	public Optional<Basket> findByUserIdAndClothNameAndClothSizeAndClothStatus(int userId, String clothName, String clothSize, String clothStauts);
 	
 	public Optional<Basket> findById(int id);
 }
