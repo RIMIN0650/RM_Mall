@@ -97,6 +97,12 @@
 	$(document).ready(function(){
 		let chooseSize = 0;
 		let cnt = 1;
+		
+		$("#productCnt").on("input",function(){
+			cnt = $("#productCnt").val();
+		});
+		
+		
 		$("#incCntBtn").on("click",function(){
 			cnt = $("#productCnt").val();
 			cnt++;
