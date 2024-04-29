@@ -102,7 +102,7 @@ public class BasketService {
 		
 		if(basket != null) {
 			basket = basket.toBuilder()
-					.clothStatus("주문 완료 & 접수 대기")
+					.clothStatus("주문 완료")
 					.build();
 					
 			basket = basketRepository.save(basket);

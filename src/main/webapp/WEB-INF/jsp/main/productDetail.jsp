@@ -152,7 +152,7 @@
 					}
 				}
 				, error:function(){
-					alert("에러");
+					alert("로그인이 필요합니다.");
 				}
 				
 			});

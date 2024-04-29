@@ -31,38 +31,77 @@
 				<button type="button" class="btn"><a href="/basket/list-view">장바구니</a></button>
 			</nav>
 			<article>
-				<table class="table text-center" id="basketList">
-					<thead>
-						<tr>
-							<th>선택</th>
-							<th>제품명</th>
-							<th>사이즈</th>
-							<th>가격</th>
-							<th>수량</th>
-							<th>주문상태</th>
-							<th>주문</th>
-							<th>삭제</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="basket" items="${basketList }">
+				<!-- 주문하기 전 장바구니 목록 -->
+				<div>
+					<h3 class="ml-1">나의 장바구니 목록</h3>
+					<table class="table text-center" id="basketList">
+						<thead>
 							<tr>
-								<td><input type="checkbox" id="${basket.id }"></td>
-								<td>${basket.clothName }</td>
-								<td>${basket.clothSize }</td>
-								<td>${basket.clothPrice }</td>
-								<td>${basket.clothCount }</td>
-								<td>${basket.clothStatus }</td>								
-								<td><button type="button" class="btn btn-sm btn-success orderBtn" data-basket-id="${basket.id }">주문</button></td>
-								<td><button type="button" class="btn btn-sm btn-warning deleteBtn" data-basket-id="${basket.id }">취소</button></td>
-							</tr>	
-						</c:forEach>
-					</tbody>
-				</table>
-				<div class="d-flex justify-content-between mx-3">
-					<button type="button" class="btn btn-outline-info"><a href="/main/home">돌아가기</a></button>
-					<button type="button" class="btn btn-outline-success" id="orderBtn">주문하기</button>
+								<th>선택</th>
+								<th>제품명</th>
+								<th>사이즈</th>
+								<th>가격</th>
+								<th>수량</th>
+								<th>주문상태</th>
+								<th>주문</th>
+								<th>삭제</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="basket" items="${basketList }">
+							<c:if test="${basket.clothStatus =='장바구니' }">
+								<tr>
+									<td><input type="checkbox" id="${basket.id }"></td>
+									<td>${basket.clothName }</td>
+									<td>${basket.clothSize }</td>
+									<td>${basket.clothPrice }</td>
+									<td>${basket.clothCount }</td>
+									<td>${basket.clothStatus }</td>								
+									<td><button type="button" class="btn btn-sm btn-success orderBtn" data-basket-id="${basket.id }">주문</button></td>
+									<td><button type="button" class="btn btn-sm btn-warning deleteBtn" data-basket-id="${basket.id }">취소</button></td>
+								</tr>	
+							</c:if>
+							</c:forEach>
+						</tbody>
+					</table>
+					<div class="d-flex justify-content-between mx-3">
+						<button type="button" class="btn btn-outline-info"><a href="/main/home">돌아가기</a></button>
+						<button type="button" class="btn btn-outline-success" id="orderBtn">주문하기</button>
+					</div>
 				</div>
+				<!-- 주문하기 전 장바구니 목록 -->
+				<div class="mt-5">
+					<h3 class="ml-1">주문 완료</h3>
+					<table class="table text-center" id="basketList">
+						<thead>
+							<tr>
+								<th>제품명</th>
+								<th>사이즈</th>
+								<th>가격</th>
+								<th>수량</th>
+								<th>주문상태</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="basket" items="${basketList }">
+							<c:if test="${basket.clothStatus =='주문 완료' }">
+								<tr>
+									<td>${basket.clothName }</td>
+									<td>${basket.clothSize }</td>
+									<td>${basket.clothPrice }</td>
+									<td>${basket.clothCount }</td>
+									<td>${basket.clothStatus }</td>	
+								</tr>	
+							</c:if>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+				<!-- 주문한 상품 목록 -->
+				<div>
+				
+				</div>
+				
 			</article>
 			
 		</section>
