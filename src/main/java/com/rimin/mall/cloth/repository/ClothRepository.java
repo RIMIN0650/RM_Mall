@@ -10,5 +10,5 @@ public interface ClothRepository extends JpaRepository<Cloth,Integer> {
 	
 	public List<Cloth> findAll();
 
-	public List<Cloth> findAllByClothName();
+	public Cloth findByClothName(String clothName);
 }

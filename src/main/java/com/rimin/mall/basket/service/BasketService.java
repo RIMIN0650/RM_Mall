@@ -39,7 +39,7 @@ public class BasketService {
 		
 		List<Basket> basketList = basketRepository.findByUserIdOrderByIdDesc(loginUserId);
 		
-		Cloth cloth = clothRepository.findAllByClothName(basket.getclothName);
+		
 		
 		List<BasketDetail> basketDetailList = new ArrayList<>();
 		
@@ -47,12 +47,14 @@ public class BasketService {
 			
 			int userId = basket.getUserId();
 			
+			Cloth cloth = clothRepository.findByClothName(basket.getClothName());
+			
 			BasketDetail basketDetail = BasketDetail.builder()
 										.clothName(cloth.getClothName())
-										.clothSize(basket.getClothName())
-										.clothStatus(null)
-										.clothCount(0)
-										.clothPrice(0)
+										.clothSize(basket.getClothSize())
+										.clothStatus("장바구니")
+										.clothCount(basket.getClothCount())
+										.clothPrice(cloth.getClothPrice())
 										.build();
 			
 			basketDetailList.add(basketDetail);

@@ -36,6 +36,7 @@
 						<tr>
 							<th>제품명</th>
 							<th>사이즈</th>
+							<th>가격</th>
 							<th>수량</th>
 							<th>주문상태</th>
 							<th>삭제</th>
@@ -46,9 +47,10 @@
 							<tr>
 								<td>${basket.clothName }</td>
 								<td>${basket.clothSize }</td>
+								<td>${basket.clothPrice }</td>
 								<td>${basket.clothCount }</td>
 								<td>${basket.clothStatus }</td>
-								<td><button type="button" class="btn btn-sm btn-warning">삭제</button></td>
+								<td><button type="button" class="btn btn-sm btn-warning">취소</button></td>
 							</tr>	
 						</c:forEach>
 					</tbody>
