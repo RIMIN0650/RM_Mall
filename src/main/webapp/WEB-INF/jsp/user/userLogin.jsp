@@ -18,9 +18,11 @@
 				<div class="my-5">
 					<h1>로그인</h1>
 				</div>
-				<input type="text" class="form-control my-3" placeholder="id" id="logInId">
-				<input type="password" class="form-control mb-3" placeholder="password" id="logInPw">
-				<button type="button" class="btn btn-info btn-lg my-3" id="logInBtn">로그인</button>
+				<form id="loginForm">
+					<input type="text" class="form-control my-3" placeholder="id" id="logInId">
+					<input type="password" class="form-control mb-3" placeholder="password" id="logInPw">
+					<button type="button" class="btn btn-info btn-lg my-3" id="logInBtn">로그인</button>
+				</form>
 				<hr>
 				<div class="mt-5">
 				<a href="/user/join">회원가입</a>&nbsp;또는&nbsp;<a href="/main/home">메인 페이지로</a>
@@ -43,10 +45,12 @@
 		$(document).ready(function(){
 			
 			
-			$("#logInBtn").on("click",function(){
+			$("#loginForm").on("submit", function(e){
 				
-				id = $("#logInId").val();
-				pw = $("#logInPw").val();
+				e.preventDefault();
+				
+				let id = $("#LogInId").val();
+				let pw = $("#LogInPw").val();
 				
 				if(id == ""){
 					alert("아이디를 입력하세요");
