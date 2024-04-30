@@ -93,6 +93,27 @@ public class ClothService {
 	}
 	
 	
+	// 옷 분류해서 보여주는
+	public List<ClothDetail> getClassifiedClothes(String clothCategory){
+		
+		List<Cloth> clothList = clothRepository.findByClothCategory(clothCategory);
+		
+		List<ClothDetail> clothDetailList = new ArrayList<>();
+		
+		for(Cloth cloth:clothList) {
+			ClothDetail clothDetail = ClothDetail.builder()
+					.clothName(cloth.getClothName())
+					.clothId(cloth.getId())
+					.clothCategory(cloth.getClothCategory())
+					.clothImageUrl(cloth.getClothImagePath())
+					.clothPrice(cloth.getClothPrice())
+					.build();
+					
+			clothDetailList.add(clothDetail);
+		}
+		
+		return clothDetailList;
+	}
 	
 	// 메인 페이지에 옷 보여주기
 	public List<ClothDetail> getClothDetail(){
@@ -107,6 +128,7 @@ public class ClothService {
 			ClothDetail clothDetail = ClothDetail.builder()
 										.clothName(cloth.getClothName())
 										.clothId(clothId)
+										.clothCategory(cloth.getClothCategory())
 										.clothImageUrl(cloth.getClothImagePath())
 										.clothPrice(cloth.getClothPrice())
 										.build();
@@ -129,6 +151,6 @@ public class ClothService {
 		
 	}
 	
-	
+
 
 }

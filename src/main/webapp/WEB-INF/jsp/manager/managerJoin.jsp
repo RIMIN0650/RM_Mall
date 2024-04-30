@@ -63,8 +63,6 @@
 			$("#possId").addClass("d-none");
 		});
 		
-		
-		
 		$("#checkDup").on("click",function(){
 			let id = $("#identifier").val();
 			
@@ -95,7 +93,6 @@
 			});
 		});
 
-		
 		
 		$("#joinBtn").on("click",function(){
 			
@@ -147,8 +144,7 @@
 				,error:function(){
 					alert("error");
 				}
-		});
-			
+			});
 		});
 		
 		

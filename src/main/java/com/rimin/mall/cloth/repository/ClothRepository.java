@@ -1,6 +1,7 @@
 package com.rimin.mall.cloth.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -11,4 +12,6 @@ public interface ClothRepository extends JpaRepository<Cloth,Integer> {
 	public List<Cloth> findAll();
 
 	public Cloth findByClothName(String clothName);
+	
+	public List<Cloth> findByClothCategory(String clothCategory);
 }

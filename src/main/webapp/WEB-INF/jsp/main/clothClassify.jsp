@@ -23,17 +23,18 @@
 		<section class="d-flex">
 			<nav class="main-menu bg-info">
 				<ul class="nav flex-column">
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">아우터</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">셔츠/블라우스</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">스커트</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">팬츠</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">데님</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">니트/가디건</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">드레스</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">악세서리</h5></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=1" class="text-white">아우터</a></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=2" class="text-white">셔츠/블라우스</a></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=3" class="text-white">스커트</a></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=4" class="text-white">팬츠</a></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=5" class="text-white">데님</a></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=6" class="text-white">니트/가디건</a></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=7" class="text-white">드레스</a></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=8" class="text-white">악세서리</a></li>
 				</ul>
+				<br><br><br>
 				<button type="button" class="btn"><a href="/user/save/payment" class="text-white">결제 정보 추가</a></button>
-				<button type="button" class="btn"><a href="/basket/list-view" class="text-white">장바구니</a></button>
+				<button type="button" class="btn" id="goCart"><a href="/basket/list-view" class="text-white">장바구니</a></button>
 			</nav>
 			
 			<article class="main-contents ml-3">
