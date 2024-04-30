@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +19,7 @@
 				<th>번호</th>
 				<th>사용자 이름</th>
 				<th>제품 이름</th>
+				<th>사이즈</th>
 				<th>제품 수량</th>
 				<th>사용자 주소</th>
 				<th>상태</th>
@@ -32,6 +34,7 @@
 				<td>${status.count +1 }</td>
 				<td>${list.userName }</td>
 				<td>${list.clothName }</td>
+				<td>${list.clothSize }</td>
 				<td>${list.clothCount }</td>
 				<td>${list.userAddress }</td>
 				<td>${list.clothStatus }</td>

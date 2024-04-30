@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.rimin.mall.basket.domain.Basket;
 import com.rimin.mall.basket.repository.BasketRepository;
-import com.rimin.mall.manager.dto.OrderList;
+import com.rimin.mall.manager.dto.Order;
 import com.rimin.mall.user.domain.User;
 import com.rimin.mall.user.repository.UserRepository;
 
@@ -22,33 +22,33 @@ public class ManagerService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	public List<OrderList> getOrderList(){
+	public List<Order> getOrderList(){
 		
 		List<Basket> basketList = basketRepository.findAll();
 		
-		
-		List<OrderList> everyOrderList = new ArrayList<>();
-		
-		
+		List<Order> orderList = new ArrayList<>();
 		
 		for(Basket basket : basketList) {
 			
-			Optional<User> optionalUser = userRepository.findById(basket.getUserId());
+			int userId = basket.getUserId();
+			
+			Optional<User> optionalUser = userRepository.findById(userId);
 			User user = optionalUser.orElse(null);
 			
-			OrderList orderList =  OrderList.builder()
+			Order order =  Order.builder()
 									.id(basket.getId())
 									.userName(user.getName())
+									.clothSize(basket.getClothSize())
 									.clothName(basket.getClothName())
 									.clothCount(basket.getClothCount())
 									.userAddress(user.getAddress())
 									.clothStatus(basket.getClothStatus())
 									.build();
-			everyOrderList.add(orderList);
+			orderList.add(order);
 			
 		}
 		
-		return everyOrderList;
+		return orderList;
 		
 	}
 	

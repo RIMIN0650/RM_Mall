@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.rimin.mall.manager.dto.OrderList;
+import com.rimin.mall.manager.dto.Order;
 import com.rimin.mall.manager.service.ManagerService;
 
 @Controller
@@ -31,7 +31,7 @@ public class ManagerController {
 	@GetMapping("/manager/show/orderList")
 	public String showOrderList(Model model){
 	
-		List<OrderList> orderList = managerService.getOrderList();
+		List<Order> orderList = managerService.getOrderList();
 		
 		model.addAttribute("orderList", orderList);
 		
