@@ -15,7 +15,6 @@
 					<button type="button" class="btn btn-outline-primary btn-sm d-none" id="searchBtn">검색</button>
 					</div>
 					<c:choose>
-						
 						<c:when test="${userName eq null }">
 							<div class="ml-5">
 								<a href="/user/login" class="btn btn-outline-success">로그인</a>
