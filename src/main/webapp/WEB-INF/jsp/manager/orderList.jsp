@@ -30,6 +30,7 @@
 			
 		<tbody>
 			<c:forEach var="list" items="${orderList }" varStatus="status">
+			<c:if test="${list.clothStatus != '장바구니' }">
 			<tr>
 				<td>${status.count }</td>
 				<td>${list.userName }</td>
@@ -41,10 +42,10 @@
 				<td><button type="button" class="btn btn-warning onDeliverBtn" data-deliver-id="${list.id }">배송중</button></td>
 				<td><button type="button" class="btn btn-success deliveredBtn" data-deliver-id="${list.id }">배송 완료</button></td>
 			</tr>
+			</c:if>
 			</c:forEach>
 		</tbody>
 	</table>
-
 	</div>
 
 
@@ -81,10 +82,7 @@
 					, error:function(){
 						alert("배송 에러");
 					}
-					
 				});
-				
-				
 			});
 			
 			

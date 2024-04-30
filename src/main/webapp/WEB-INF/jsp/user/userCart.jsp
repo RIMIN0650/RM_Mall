@@ -75,6 +75,8 @@
 					</div>
 				</div>
 				<!-- 주문하기 전 장바구니 목록 -->
+				
+				<!-- 주문한 상품 목록 -->
 				<div class="mt-5">
 					<h3 class="ml-1">주문 완료</h3>
 					<table class="table text-center" id="basketList">
@@ -103,9 +105,63 @@
 					</table>
 				</div>
 				<!-- 주문한 상품 목록 -->
-				<div>
-				
+				<!-- 주문한 상품 목록 -->
+				<div class="mt-5">
+					<h3 class="ml-1">배송중인 상품</h3>
+					<table class="table text-center" id="basketList">
+						<thead>
+							<tr>
+								<th>제품명</th>
+								<th>사이즈</th>
+								<th>가격</th>
+								<th>수량</th>
+								<th>주문상태</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="basket" items="${basketList }">
+							<c:if test="${basket.clothStatus =='배송중' }">
+								<tr>
+									<td>${basket.clothName }</td>
+									<td>${basket.clothSize }</td>
+									<td>${basket.clothPrice }</td>
+									<td>${basket.clothCount }</td>
+									<td>${basket.clothStatus }</td>	
+								</tr>	
+							</c:if>
+							</c:forEach>
+						</tbody>
+					</table>
 				</div>
+				<!-- 주문한 상품 목록 --><!-- 주문한 상품 목록 -->
+				<div class="mt-5">
+					<h3 class="ml-1">나의 주문 내역</h3>
+					<table class="table text-center" id="basketList">
+						<thead>
+							<tr>
+								<th>제품명</th>
+								<th>사이즈</th>
+								<th>가격</th>
+								<th>수량</th>
+								<th>주문상태</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="basket" items="${basketList }">
+							<c:if test="${basket.clothStatus =='배송 완료' }">
+								<tr>
+									<td>${basket.clothName }</td>
+									<td>${basket.clothSize }</td>
+									<td>${basket.clothPrice }</td>
+									<td>${basket.clothCount }</td>
+									<td>${basket.clothStatus }</td>	
+								</tr>	
+							</c:if>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+				<!-- 주문한 상품 목록 -->
 				
 			</article>
 			
