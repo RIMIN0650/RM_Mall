@@ -14,4 +14,5 @@ public interface BasketRepository extends JpaRepository <Basket,Integer> {
 	public Optional<Basket> findByUserIdAndClothNameAndClothSizeAndClothStatus(int userId, String clothName, String clothSize, String clothStauts);
 	
 	public Optional<Basket> findById(int id);
+	
 }

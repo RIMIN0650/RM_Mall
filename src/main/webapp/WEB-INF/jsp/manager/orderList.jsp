@@ -31,15 +31,15 @@
 		<tbody>
 			<c:forEach var="list" items="${orderList }" varStatus="status">
 			<tr>
-				<td>${status.count +1 }</td>
+				<td>${status.count }</td>
 				<td>${list.userName }</td>
 				<td>${list.clothName }</td>
 				<td>${list.clothSize }</td>
 				<td>${list.clothCount }</td>
 				<td>${list.userAddress }</td>
 				<td>${list.clothStatus }</td>
-				<td><button type="button" class="btn btn-warning">배송중</button></td>
-				<td><button type="button" class="btn btn-success">배송 완료</button></td>
+				<td><button type="button" class="btn btn-warning onDeliverBtn" data-deliver-id="${list.id }">배송중</button></td>
+				<td><button type="button" class="btn btn-success deliveredBtn" data-deliver-id="${list.id }">배송 완료</button></td>
 			</tr>
 			</c:forEach>
 		</tbody>
@@ -54,5 +54,68 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+	
+	
+	
+	
+	
+	
+	<script>
+		$(document).ready(function(){
+			
+			$(".onDeliverBtn").on("click",function(){
+				let orderId = $(this).data("deliver-id");
+				
+				$.ajax({
+					type:"put"
+					, url:"/change/status/onDeliver"
+					, data:{"id" : orderId}
+					, success:function(data){
+						if(data.result == "success"){
+							alert("제품 배송중")
+							location.reload();
+						} else {
+							alert("배송 실패");
+						}
+					}
+					, error:function(){
+						alert("배송 에러");
+					}
+					
+				});
+				
+				
+			});
+			
+			
+			$(".deliveredBtn").on("click",function(){
+				let orderId = $(this).data("deliver-id");
+				
+				$.ajax({
+					type:"put"
+					, url:"/change/status/delivered"
+					, data:{"id" : orderId}
+					, success:function(data){
+						if(data.result == "success"){
+							alert("배송 완료")
+							location.reload();
+						} else {
+							alert("배송 실패");
+						}
+					}
+					, error:function(){
+						alert("배송 에러");
+					}
+					
+				});
+			});
+			
+			
+		});
+	
+	
+	</script>
+	
+	
 </body>
 </html>

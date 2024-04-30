@@ -25,7 +25,6 @@ public class ManagerService {
 	public List<Order> getOrderList(){
 		
 		List<Basket> basketList = basketRepository.findAll();
-		
 		List<Order> orderList = new ArrayList<>();
 		
 		for(Basket basket : basketList) {
@@ -53,5 +52,37 @@ public class ManagerService {
 	}
 	
 	
+	// 배송중 상태로 변경
+	public Basket updateStatusOnDeliver(int id) {
+		Optional<Basket> optionalBasket = basketRepository.findById(id);
+		Basket basket = optionalBasket.orElse(null);
+		
+		
+		if(basket != null) {
+			basket = basket.toBuilder()
+						.clothStatus("배송중")
+						.build();
+			basket = basketRepository.save(basket);
+		}
+		return basket;
+		
+	}
+	
+	
+	// 배송완료 상태로 변경
+		public Basket updateStatusDelivered(int id) {
+			Optional<Basket> optionalBasket = basketRepository.findById(id);
+			Basket basket = optionalBasket.orElse(null);
+			
+			
+			if(basket != null) {
+				basket = basket.toBuilder()
+							.clothStatus("배송 완료")
+							.build();
+				basket = basketRepository.save(basket);
+			}
+			return basket;
+			
+		}
 	
 }
