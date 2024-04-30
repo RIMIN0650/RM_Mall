@@ -43,13 +43,102 @@
 <script>
 	$(document).ready(function(){
 		
+		var isDupId = true; // 중복된 아이디인지 체크
+		
+		var isDupCheck = false; // 아이디 중복확인 검사 여부
+		
+		// 아이디 입력창에 변경이 생겼다면
+		$("#identifier").on("input",function(){
+			isDupId = true;
+			isDupCheck = false;
+			
+			$("#dupId").addClass("d-none");
+			$("#possId").addClass("d-none");
+		});
+		
+		
 		
 		$("#checkDup").on("click",function(){
-			alert("checkeDup");
+			let id = $("#identifier").val();
+			
+			if(id ==""){
+				alert("Id를 입력하세요");
+				return;
+			}
+			
+			$.ajax({
+				type:"get"
+				, url:"/manager/duplicate-id"
+				, data:{"loginId":id}
+				, success:function(data){
+						isDupCheck = true; // 아이디 중복 확인 여부를 참으로 만들어주기
+						if(data.isDuplicateId){ // 만약 아이디가 중복아이디라면
+							isDupId = true;
+							$("#dupId").removeClass("d-none");
+							$("#possId").addClass("d-none");
+						} else { // 아이디가 사용 가능한 아이디라면
+							isDupId = false;
+							$("#dupId").addClass("d-none");
+							$("#possId").removeClass("d-none");			
+						}
+					}
+				, error:function(){
+					alert("중복확인 에러");
+				}
+			});
 		});
 
+		
+		
 		$("#joinBtn").on("click",function(){
-			alert("qwerqwer");
+			
+			let id = $("#identifier").val();
+			let managerPw = $("#managerPw").val();
+			let pw = $("#password").val();
+			let checkPw = $("#checkPassword").val();
+			let name = $("#name").val();
+			
+			if(id == null){
+				alert("아이디를 입력하세요!");
+				return;
+			}
+			if(managerPw != "rm123"){
+				alert("매니저 인증번호를 확인하세요!");
+				return;
+			}
+			
+			if(pw ==""){
+				alert("비밀번호를 입력하세요!");
+				return;
+			}
+			if(pw != checkPw){
+				alert("비밀번호를 확인하세요!");
+				return;
+			}
+			if(name ==""){
+				alert("이름을 입력하세요!");
+				return;
+			}
+			
+			$.ajax({
+				type:"post"
+				, url:"/manager/join"
+				, data:{"loginId":id, "password":pw, "managerName":name}
+				, success:function(data){
+					console.log(data);
+					
+					if(data.result == "success"){
+						alert("로그인 성공! 메인 페이지로 이동합니다");
+						location.href="/main/home"
+					} else {
+						alert("로그인 실패.");
+					}
+				}
+				,error:function(){
+					alert("error");
+				}
+		});
+			
 		});
 		
 		

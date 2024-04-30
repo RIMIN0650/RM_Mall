@@ -23,6 +23,14 @@ public class ManagerController {
 		return "manager/managerJoin";
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
 	// 매니저가 상품 추가
 	@GetMapping("/manager/add-product")
 	public String AddProduct() {

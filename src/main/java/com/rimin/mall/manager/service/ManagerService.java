@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.rimin.mall.basket.domain.Basket;
 import com.rimin.mall.basket.repository.BasketRepository;
+import com.rimin.mall.manager.domain.Manager;
 import com.rimin.mall.manager.dto.Order;
+import com.rimin.mall.manager.repository.ManagerRepository;
 import com.rimin.mall.user.domain.User;
 import com.rimin.mall.user.repository.UserRepository;
 
@@ -21,6 +23,42 @@ public class ManagerService {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private ManagerRepository managerRepository;
+	
+	
+	//매니저 회원가입
+	public Manager addManager(String loginId
+								, String password
+								, String name) {
+		Manager manager = Manager.builder()
+									.loginId(loginId)
+									.password(password)
+									.managerName(name)
+									.build();
+		
+		return managerRepository.save(manager);
+	}
+	
+	
+	// 아이디 중복 확인
+	public boolean isDuplicateId(String loginId) {
+		int count = managerRepository.countByLoginId(loginId);
+		
+		if(count != 0) { // 아이디 중복 아님
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	public List<Order> getOrderList(){
 		
