@@ -27,8 +27,8 @@
 					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">드레스</h5></li>
 					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">악세서리</h5></li>
 				</ul>
-				<button type="button" class="btn"><a href="/user/save/payment">결제 정보 추가</a></button>
-				<button type="button" class="btn"><a href="/basket/list-view">장바구니</a></button>
+				<button type="button" class="btn"><a href="/user/save/payment" class="text-white">결제 정보 추가</a></button>
+				<button type="button" class="btn"><a href="/basket/list-view" class="text-white">장바구니</a></button>
 			</nav>
 			<article>
 				<!-- 주문하기 전 장바구니 목록 -->
@@ -70,7 +70,7 @@
 					<h5 class="align-right">총 금액 &nbsp; : &nbsp;  ${totalPrice } 원</h5>
 					
 					<div class="d-flex justify-content-between ml-3 mt-3">
-						<button type="button" class="btn btn-outline-info"><a href="/main/home">돌아가기</a></button>
+						<button type="button" class="btn btn-outline-info"><a href="/main/home" class="text-dark">돌아가기</a></button>
 						<button type="button" class="btn btn-outline-success" id="orderBtn">주문하기</button>
 					</div>
 				</div>

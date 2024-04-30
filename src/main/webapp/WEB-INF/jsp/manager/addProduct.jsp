@@ -14,23 +14,16 @@
 </head>
 <body>
 	
-	<div id="wrap">
-		<c:import url="/WEB-INF/jsp/include/header.jsp" />
+	<div id="wrap" class="border border-dark">
+		<div class="my-3 mx-1 d-flex justify-content-between">
+			<button type="button" class="btn btn-outline-info" id="logoutBtn"><a href="/manager/logout" class="text-info">로그아웃</a></button>
+			<button type="button" class="btn btn-outline-info" id="logoutBtn"><a href="/manager/show/orderList" class="text-info">주문 리스트 조회</a></button>
+		</div>
 		<section class="d-flex">
-			<nav class="main-menu bg-info">
-				<ul class="nav flex-column">
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">아우터</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">셔츠/블라우스</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">스커트</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">팬츠</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">데님</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">니트/가디건</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">드레스</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">악세서리</h5></li>
-				</ul>
-			</nav>
+			
 			
 			<article class="main-contents ml-3">
+				<h1 class="mt-3">상품 추가</h1>
 				<!-- 상품 이미지 -->
 				<div class="mx-3 mt-5">
 					<div>

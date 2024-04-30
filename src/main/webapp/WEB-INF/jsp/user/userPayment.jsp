@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
 <body>
-	<div id="wrap" class="bg-warning">
+	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section class="d-flex">
 			<nav class="main-menu bg-info">
@@ -25,7 +25,7 @@
 					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">드레스</h5></li>
 					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">악세서리</h5></li>
 				</ul>
-				<button type="button" class="btn"><a href="/basket/list-view">장바구니</a></button>
+				<button type="button" class="btn"><a href="/basket/list-view" class="text-white">장바구니</a></button>
 			</nav>
 			<div class="d-flex justify-content-center">
 				<div class="my-3 ml-5">
@@ -56,7 +56,7 @@
 						</div>
 					</div>
 					<div class="d-flex justify-content-between">
-							<button type="button" class="btn btn-danger btn-lg mt-5" id="backBtn"><a href="/main/home">돌아가기</a></button>
+							<button type="button" class="btn btn-danger btn-lg mt-5" id="backBtn"><a href="/main/home" class="text-white">돌아가기</a></button>
 							<button type="button" class="btn btn-info btn-lg mt-5" id="saveBtn">저장하기</button>
 					</div>
 				</div>
