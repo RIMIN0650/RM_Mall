@@ -21,6 +21,10 @@
 					<input type="text" class="form-control col-8 mb-3" placeholder="id" id="identifier">
 					<button type="button" class="btn btn-info" id="checkDup">중복확인</button>
 				</div>
+				<div class="d-flex justify-content-center align-items-start">
+					<div class="small text-danger d-none mb-3" id="dupId">중복된 아이디 입니다.</div>
+					<div class="small text-success d-none mb-3" id="possId">사용 가능한 아이디 입니다.</div>
+				</div>
 				<input type="password" class="form-control mb-3" placeholder="관리자 인증번호" id="managerPw"> 
 				<input type="password" class="form-control mb-3" placeholder="password" id="password">
 				<input type="password" class="form-control mb-3" placeholder="check-password" id="checkPassword">
@@ -106,7 +110,10 @@
 				alert("매니저 인증번호를 확인하세요!");
 				return;
 			}
-			
+			if(!isDupCheck){
+				alert("id 중복 확인을 해주세요");
+				return;
+			}
 			if(pw ==""){
 				alert("비밀번호를 입력하세요!");
 				return;
