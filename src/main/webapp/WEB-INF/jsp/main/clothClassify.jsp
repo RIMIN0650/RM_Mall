@@ -37,16 +37,7 @@
 			</nav>
 			
 			<article class="main-contents ml-3">
-				<!-- popular box -->
-				<div id="popular-product">
-					<h2 class="text-center my-3">Popular products</h2>
-					<div class="autoplay my-3">
-						<c:forEach var="cloth" items="${clothList }">
-							<div class="hot-product mt-3 mx-3"><a href="/main/clothes-detail?id=${cloth.clothId }"><img src="${cloth.clothImageUrl }" width="100%"></a></div>
-						</c:forEach>
-					</div>
-				</div>
-				<!-- /popular box -->
+		
 				
 				<!-- product list -->
 				<div>
@@ -87,25 +78,6 @@
 		$("#searchInput").removeClass("d-none");
 		$("#searchBtn").removeClass("d-none");
 	
-		
-	});
-	</script>
-	
-	
-	
-	
-	
-	<script type="text/javascript">
-	$(document).ready(function(){
-		
-
-		$('.autoplay').slick({
-			  slidesToShow: 5,
-			  slidesToScroll: 1,
-			  autoplay: true,
-			  autoplaySpeed: 2000,
-		});
-		
 		
 	});
 	</script>

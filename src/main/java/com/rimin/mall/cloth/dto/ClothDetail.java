@@ -14,5 +14,5 @@ public class ClothDetail {
 		private String clothImageUrl;
 		private int clothId; // primary key
 		private int clothPrice; // 상품 가격
-
+		private String clothCategory;
 }
