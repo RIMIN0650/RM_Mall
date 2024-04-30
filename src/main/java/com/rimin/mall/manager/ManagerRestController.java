@@ -14,6 +14,9 @@ import com.rimin.mall.basket.domain.Basket;
 import com.rimin.mall.manager.domain.Manager;
 import com.rimin.mall.manager.service.ManagerService;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 @RestController
 public class ManagerRestController {
 	
@@ -39,6 +42,31 @@ public class ManagerRestController {
 	}
 	
 	
+	
+	// 로그인 기능
+		@PostMapping("/manager/login")
+		public Map<String, String> login(
+								@RequestParam("loginId") String loginId
+								, @RequestParam("loginPw") String loginPw
+								, HttpServletRequest request){
+			
+			Manager manager = managerService.getManager(loginId, loginPw);
+			
+			Map<String, String> resultMap = new HashMap<>();
+			
+			if(manager != null) {
+				HttpSession session = request.getSession();
+				
+				session.setAttribute("managerId", manager.getId());
+				session.setAttribute("managerName", manager.getManagerName());
+				
+				resultMap.put("result",  "success");
+			} else {
+				resultMap.put("result", "fail");
+			}
+			return resultMap;
+			
+		}
 	
 	
 	

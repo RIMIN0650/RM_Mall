@@ -15,6 +15,12 @@
 					<button type="button" class="btn btn-outline-primary btn-sm d-none" id="searchBtn">검색</button>
 					</div>
 					<c:choose>
+						<c:when test="${managerName ne null }">
+							<div class="ml-5">
+								<button type="button" class="btn btn-outline-info"><a href="/manager/show/orderList" class="text-info">주문 목록 관리</a></button>
+								<button type="button" class="btn btn-outline-info" id="logoutBtn"><a href="/manager/logout" class="text-info">로그아웃</a></button>
+							</div>
+						</c:when>
 						<c:when test="${userName eq null }">
 							<div class="ml-5">
 								<a href="/user/login" class="btn btn-outline-success">로그인</a>

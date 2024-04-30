@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.rimin.mall.manager.dto.Order;
 import com.rimin.mall.manager.service.ManagerService;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class ManagerController {
 	
@@ -23,11 +26,24 @@ public class ManagerController {
 		return "manager/managerJoin";
 	}
 	
+	@GetMapping("/manager/login")
+	public String managerLogin() {
+		return "manager/managerLogin";
+	}
 	
 	
-	
-	
-	
+	// user 로그아웃
+	@GetMapping("/manager/logout")
+	public String logout(HttpServletRequest request) {
+		// 세션에 저장된 사용자 정보 제거
+		
+		HttpSession session = request.getSession();
+		
+		session.removeAttribute("managerId");
+		session.removeAttribute("managerName");
+		
+		return "redirect:/main/home";
+	}
 	
 	
 	

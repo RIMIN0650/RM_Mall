@@ -13,6 +13,12 @@
 
 	<div id="wrap">
 	
+	<div class="my-3 d-flex justify-content-between">
+		<button type="button" class="btn btn-outline-info" id="logoutBtn"><a href="/manager/logout" class="text-info">로그아웃</a></button>
+		<button type="button" class="btn btn-outline-info" id="logoutBtn"><a href="/manager/add-product" class="text-info">상품 추가</a></button>
+	</div>
+	
+	
 	<table class="table text-center">
 		<thead>
 			<tr>

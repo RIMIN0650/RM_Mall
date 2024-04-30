@@ -36,6 +36,9 @@
 				<div class="text-center pt-5">
 					<a href="/user/login">로그인  </a>&nbsp;또는&nbsp;<a href="/main/home"> 메인 페이지로</a>
 				</div>
+				<div class="my-3 text-center">
+					<a href="/manager/join">관리자 회원가입</a>
+				</div>
 			</div>
 			<!-- /input form -->
 		</section>

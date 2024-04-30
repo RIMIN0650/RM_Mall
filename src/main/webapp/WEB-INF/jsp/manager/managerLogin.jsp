@@ -5,18 +5,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>User Log-in</title>
+<title>Manager Login</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
 <body>
-	
-	<div id="wrap">
+<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section class="d-flex justify-content-center">
 			<div id="login-form" class="text-center mt-5">
 				<div class="my-5">
-					<h1>로그인</h1>
+					<h1>관리자 로그인</h1>
 				</div>
 				<input type="text" class="form-control my-3" placeholder="id" id="logInId">
 				<input type="password" class="form-control mb-3" placeholder="password" id="logInPw">
@@ -26,7 +25,7 @@
 				<a href="/user/join">회원가입</a>&nbsp;또는&nbsp;<a href="/main/home">메인 페이지로</a>
 				</div>
 				<div class="my-3">
-					<a href="/manager/login">관리자 로그인</a>
+					<a href="/user/login">고객 로그인</a>
 				</div>
 			</div>
 		</section>
@@ -60,12 +59,12 @@
 				
 				$.ajax({
 					type:"post"
-					, url:"/user/login"
+					, url:"/manager/login"
 					, data:{"loginId":id, "loginPw":pw}
 					, success:function(data){
 						if(data.result == "success"){
-							location.href="/main/home";
-							alert("로그인 성공 메인 페이지로 이동합니다");
+							location.href="/manager/show/orderList";
+							alert("로그인 성공 관리자 페이지로 이동합니다.");
 						} else {
 							alert("로그인 실패");
 						}

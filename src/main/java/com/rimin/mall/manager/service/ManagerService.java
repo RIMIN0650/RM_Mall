@@ -42,6 +42,13 @@ public class ManagerService {
 	}
 	
 	
+	// 로그인 기능
+		public Manager getManager(String loginId, String loginPw) {
+			return managerRepository.findByLoginIdAndPassword(loginId, loginPw);
+		}
+	
+	
+	
 	// 아이디 중복 확인
 	public boolean isDuplicateId(String loginId) {
 		int count = managerRepository.countByLoginId(loginId);
