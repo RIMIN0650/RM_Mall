@@ -106,7 +106,7 @@
 				alert("아이디를 입력하세요!");
 				return;
 			}
-			if(managerPw != "rm123"){
+			if(managerPw != "rm0650"){
 				alert("매니저 인증번호를 확인하세요!");
 				return;
 			}
