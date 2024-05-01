@@ -135,10 +135,10 @@
 					console.log(data);
 					
 					if(data.result == "success"){
-						alert("로그인 성공! 메인 페이지로 이동합니다");
+						alert("회원가입 성공! 메인 페이지로 이동합니다");
 						location.href="/main/home"
 					} else {
-						alert("로그인 실패.");
+						alert("회원가입 실패.");
 					}
 				}
 				,error:function(){

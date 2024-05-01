@@ -24,7 +24,6 @@ public class ClothController {
 		return "main/productDetail";
 	}
 	
-	
 	@GetMapping("/main/clothes/classify")
 	public String clothClassify(@RequestParam("clothCategory") String clothCategory
 								, Model model) {
@@ -47,12 +46,5 @@ public class ClothController {
 		return "main/productDetail";
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

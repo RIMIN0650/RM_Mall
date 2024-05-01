@@ -52,5 +52,4 @@ public class Payment {
 	@Column(name="updatedAt")
 	private Date updatedAt;
 	
-	
 }

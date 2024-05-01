@@ -25,7 +25,6 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Cloth {
 	
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;

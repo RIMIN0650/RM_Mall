@@ -24,11 +24,5 @@ public class MainController {
 		
 		return "main/mainPage";
 	}
-	
-	
 
-
-	
-	
-	
 }

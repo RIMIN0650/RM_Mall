@@ -14,10 +14,8 @@ import com.rimin.mall.cloth.service.ClothService;
 @RestController
 public class ClothRestController {
 	
-
 	@Autowired
 	private ClothService clothService;
-	
 	
 	// 신규 상품 등록
 	@PostMapping("/manager/add-cloth")
@@ -54,9 +52,7 @@ public class ClothRestController {
 		} else {
 			resultMap.put("result", "fail");
 		}
-		
 		return resultMap;
 	}
-	
 	
 }

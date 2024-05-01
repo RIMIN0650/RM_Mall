@@ -21,7 +21,6 @@ public class UserRestController {
 	@Autowired
 	private UserService userService;
 	
-	
 	//회원 가입
 	@PostMapping("/user/join")
 	public Map<String, String> join(
@@ -57,7 +56,6 @@ public class UserRestController {
 		return resultMap;
 	}
 	
-	
 	// 로그인 기능
 	@PostMapping("/user/login")
 	public Map<String, String> login(
@@ -80,11 +78,6 @@ public class UserRestController {
 			resultMap.put("result", "fail");
 		}
 		return resultMap;
-		
 	}
 
-	
-
-	
-	
 }

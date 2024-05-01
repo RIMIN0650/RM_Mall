@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+  
+  
 	<header class="d-flex">
 		<div class="logo d-flex justify-content-start align-items-center pl-1">
 			<a href="/main/home" class="text-white"><img src="/static/images/RMmall.png" class="rounded-2 mt-1" height="150"></a>
@@ -32,7 +33,6 @@
 			</div>			
 		</div>
 	</header>
-
-
+	
 </body>
 </html>

@@ -6,5 +6,4 @@ import com.rimin.mall.cloth.domain.Size;
 
 public interface SizeRepository extends JpaRepository<Size,Integer> {
 
-	
 }

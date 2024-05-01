@@ -16,19 +16,18 @@
 	<div id="wrap">
 	<c:import url="/WEB-INF/jsp/include/header.jsp" />
 	
-	
 	<div>
 		<section class="d-flex">
 			<nav class="main-menu bg-info">
 				<ul class="nav flex-column">
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">아우터</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">셔츠/블라우스</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">스커트</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">팬츠</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">데님</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">니트/가디건</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">드레스</h5></li>
-					<li class="nav-item mt-3 pl-3"><h5 href="#" class="text-white">악세서리</h5></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=1" class="text-white">아우터</a></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=2" class="text-white">셔츠/블라우스</a></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=3" class="text-white">스커트</a></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=4" class="text-white">팬츠</a></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=5" class="text-white">데님</a></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=6" class="text-white">니트/가디건</a></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=7" class="text-white">드레스</a></li>
+					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=8" class="text-white">악세서리</a></li>
 				</ul>
 				<br><br><br>
 				<c:choose>
@@ -59,7 +58,6 @@
 						<div>
 							<h2>${clothInfo.clothName }</h2>
 							<h5>${clothInfo.clothPrice }</h5>
-							
 							<hr>
 							<select class="selectpicker" data-width="200px" id="selectSize">
 								  <option value="0" selected>사이즈 선택</option>
@@ -88,9 +86,7 @@
 				</div>
 			</article>
 		</section>
-	</div>
-	
-	
+	</div>	
 	
 	<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
@@ -99,7 +95,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-	
 	
 	<script>
 	
@@ -136,8 +131,6 @@
 			chooseSize = size;
 		});
 		
-	
-		
 		$("#addCartBtn").on("click",function(){
 			
 			var clothName = "${clothInfo.clothName }"
@@ -157,19 +150,14 @@
 					if(data.result == "success"){
 						alert("장바구니에 담겼습니다!");
 					} else {
-						alert("실패");
+						alert("장바구니 담기 실패.");
 					}
 				}
 				, error:function(){
 					alert("로그인이 필요합니다.");
 				}
-				
 			});
-			
-		
 		});
-		
-		
 	});
 	
 	

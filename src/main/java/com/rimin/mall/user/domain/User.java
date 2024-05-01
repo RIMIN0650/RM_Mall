@@ -45,6 +45,4 @@ public class User {
 	@Column(name="updatedAt")
 	private Date updatedAt;
 	
-	
-	
 }

@@ -88,10 +88,8 @@ public class ClothService {
 				.build();
 		sizeRepository.save(size);
 		}
-		
 		return cloth;
 	}
-	
 	
 	// 옷 분류해서 보여주는
 	public List<ClothDetail> getClassifiedClothes(String clothCategory){
@@ -134,13 +132,9 @@ public class ClothService {
 										.build();
 										
 			clothDetailList.add(clothDetail);
-		
 		}
-		
 		return clothDetailList;
 	}
-	
-	
 	
 	// 옷 하나 클릭했을 때 상세정보 보여주기
 	public Cloth getClothInfo(int id) {
@@ -150,7 +144,4 @@ public class ClothService {
 		return cloth;
 		
 	}
-	
-
-
 }

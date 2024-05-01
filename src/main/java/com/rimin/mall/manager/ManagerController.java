@@ -19,7 +19,6 @@ public class ManagerController {
 	@Autowired
 	private ManagerService managerService;
 	
-	
 	// 매니저 회원가입
 	@GetMapping("/manager/join")
 	public String managerJoin() {
@@ -30,7 +29,6 @@ public class ManagerController {
 	public String managerLogin() {
 		return "manager/managerLogin";
 	}
-	
 	
 	// user 로그아웃
 	@GetMapping("/manager/logout")
@@ -44,8 +42,6 @@ public class ManagerController {
 		
 		return "redirect:/main/home";
 	}
-	
-	
 	
 	// 매니저가 상품 추가
 	@GetMapping("/manager/add-product")
@@ -63,14 +59,6 @@ public class ManagerController {
 		
 		return "manager/orderList";
 
-	
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

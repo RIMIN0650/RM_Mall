@@ -41,35 +41,30 @@ public class ManagerRestController {
 		
 	}
 	
-	
-	
 	// 로그인 기능
-		@PostMapping("/manager/login")
-		public Map<String, String> login(
-								@RequestParam("loginId") String loginId
-								, @RequestParam("loginPw") String loginPw
-								, HttpServletRequest request){
+	@PostMapping("/manager/login")
+	public Map<String, String> login(
+							@RequestParam("loginId") String loginId
+							, @RequestParam("loginPw") String loginPw
+							, HttpServletRequest request){
+		
+		Manager manager = managerService.getManager(loginId, loginPw);
+		
+		Map<String, String> resultMap = new HashMap<>();
+		
+		if(manager != null) {
+			HttpSession session = request.getSession();
 			
-			Manager manager = managerService.getManager(loginId, loginPw);
+			session.setAttribute("managerId", manager.getId());
+			session.setAttribute("managerName", manager.getManagerName());
 			
-			Map<String, String> resultMap = new HashMap<>();
-			
-			if(manager != null) {
-				HttpSession session = request.getSession();
-				
-				session.setAttribute("managerId", manager.getId());
-				session.setAttribute("managerName", manager.getManagerName());
-				
-				resultMap.put("result",  "success");
-			} else {
-				resultMap.put("result", "fail");
-			}
-			return resultMap;
-			
+			resultMap.put("result",  "success");
+		} else {
+			resultMap.put("result", "fail");
 		}
-	
-	
-	
+		return resultMap;	
+	}
+
 	// 매니저 아이디 중복확인
 	@GetMapping("/manager/duplicate-id")
 	public Map<String, Boolean> isDuplicateId(@RequestParam("loginId") String loginId){
@@ -83,7 +78,6 @@ public class ManagerRestController {
 		return resultMap;
 	}
 	
-	
 	// 사용자 장바구니에 있는 제품들 상태 배송중 / 배송완료 로 바꿔주기
 	@PutMapping("/change/status/onDeliver")
 	public Map<String, String> updateStatusOndeliver(@RequestParam("id") int id){
@@ -96,10 +90,8 @@ public class ManagerRestController {
 			resultMap.put("result","fail");
 		}
 		return resultMap;
-		
-		
-		
 	}
+	
 	@PutMapping("/change/status/delivered")
 	public Map<String, String> updateStatusDelivered(@RequestParam("id") int id){
 		Basket basket = managerService.updateStatusDelivered(id);
@@ -112,10 +104,5 @@ public class ManagerRestController {
 		}
 		return resultMap;
 	}
-	
-	
-	
-	
-	
 	
 }

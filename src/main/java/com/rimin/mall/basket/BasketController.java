@@ -17,14 +17,10 @@ public class BasketController {
 	@Autowired
 	private BasketService basketService;
 	
-	
 	@GetMapping("/user/basket")
 	public String basketView() {
 		return "user/userCart";
 	}
-	
-	
-
 	
 	// 장바구니 목록 보여주기
 		@GetMapping("/basket/list-view")

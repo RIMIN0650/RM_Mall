@@ -16,7 +16,6 @@ import com.rimin.mall.cloth.repository.ClothRepository;
 @Service
 public class BasketService {
 	
-	
 	@Autowired 
 	private BasketRepository basketRepository;
 	
@@ -25,7 +24,6 @@ public class BasketService {
 	
 	// 장바구니 담는 기능
 	public Basket addCart(int userId, String clothName, String clothSize, int clothCount) {
-		
 		
 		Optional<Basket> optionalBasket = basketRepository.findByUserIdAndClothNameAndClothSizeAndClothStatus(userId, clothName, clothSize, "장바구니");
 		Basket basket = optionalBasket.orElse(null);
@@ -49,23 +47,14 @@ public class BasketService {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
 	// 사용자별 장바구니 조회 기능
 	public List<BasketDetail> getBasketList(int loginUserId){
 		
 		List<Basket> basketList = basketRepository.findByUserIdOrderByIdDesc(loginUserId);
 		
-		
-		
 		List<BasketDetail> basketDetailList = new ArrayList<>();
 		
 		for(Basket basket:basketList) {
-			
 			
 			Cloth cloth = clothRepository.findByClothName(basket.getClothName());
 			
@@ -80,7 +69,6 @@ public class BasketService {
 			
 			basketDetailList.add(basketDetail);
 		}
-		
 		return basketDetailList;
 	}
 
@@ -90,14 +78,11 @@ public class BasketService {
 		Optional<Basket> optionalBasket = basketRepository.findById(id);
 		Basket basket = optionalBasket.orElse(null);
 		
-		
 		if(basket != null) {
 			basketRepository.delete(basket);
 		}
-		
 		return basket;
 	}
-	
 	
 	// 주문대기 > 주문완료 & 접수대기
 	public Basket updateStatus(int id) {
@@ -115,8 +100,6 @@ public class BasketService {
 		return basket;
 	}
 	
-	
-	
 	// 여러 항목 주문 완료 상태로 
 	public List<Basket> updateMultipleStatus(List<Integer> ids) {
 		
@@ -130,12 +113,12 @@ public class BasketService {
 				basket= basket.toBuilder()
 						.clothStatus("주문 완료")
 						.build();
+				
 				Basket updatedBasket =  basketRepository.save(basket);
 				updatedBaskets.add(updatedBasket);
 				
 			}
 		}
-		
 		return updatedBaskets;
 	}
 	

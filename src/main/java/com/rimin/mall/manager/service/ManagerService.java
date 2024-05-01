@@ -27,7 +27,6 @@ public class ManagerService {
 	@Autowired
 	private ManagerRepository managerRepository;
 	
-	
 	//매니저 회원가입
 	public Manager addManager(String loginId
 								, String password
@@ -41,13 +40,10 @@ public class ManagerService {
 		return managerRepository.save(manager);
 	}
 	
-	
 	// 로그인 기능
 		public Manager getManager(String loginId, String loginPw) {
 			return managerRepository.findByLoginIdAndPassword(loginId, loginPw);
 		}
-	
-	
 	
 	// 아이디 중복 확인
 	public boolean isDuplicateId(String loginId) {
@@ -60,13 +56,7 @@ public class ManagerService {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
-	
+	// 주문 목록 가져오기
 	public List<Order> getOrderList(){
 		
 		List<Basket> basketList = basketRepository.findAll();
@@ -91,9 +81,7 @@ public class ManagerService {
 			orderList.add(order);
 			
 		}
-		
 		return orderList;
-		
 	}
 	
 	
@@ -110,24 +98,20 @@ public class ManagerService {
 			basket = basketRepository.save(basket);
 		}
 		return basket;
-		
 	}
 	
-	
 	// 배송완료 상태로 변경
-		public Basket updateStatusDelivered(int id) {
-			Optional<Basket> optionalBasket = basketRepository.findById(id);
-			Basket basket = optionalBasket.orElse(null);
-			
-			
-			if(basket != null) {
-				basket = basket.toBuilder()
-							.clothStatus("배송 완료")
-							.build();
-				basket = basketRepository.save(basket);
-			}
-			return basket;
-			
+	public Basket updateStatusDelivered(int id) {
+		Optional<Basket> optionalBasket = basketRepository.findById(id);
+		Basket basket = optionalBasket.orElse(null);
+		
+		if(basket != null) {
+			basket = basket.toBuilder()
+						.clothStatus("배송 완료")
+						.build();
+			basket = basketRepository.save(basket);
 		}
+		return basket;
+	}
 	
 }
