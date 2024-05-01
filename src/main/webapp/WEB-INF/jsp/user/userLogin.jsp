@@ -28,7 +28,7 @@
 				<a href="/user/join">회원가입</a>&nbsp;또는&nbsp;<a href="/main/home">메인 페이지로</a>
 				</div>
 				<div class="my-3">
-					<a href="/manager/login">관리자 로그인</a>
+					<a href="/admin/login">관리자 로그인</a>
 				</div>
 			</div>
 		</section>

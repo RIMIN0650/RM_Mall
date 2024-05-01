@@ -18,7 +18,7 @@ public class ClothRestController {
 	private ClothService clothService;
 	
 	// 신규 상품 등록
-	@PostMapping("/manager/add-cloth")
+	@PostMapping("/admin/add-cloth")
 	public Map<String, String> addCloth(
 			@RequestParam("clothName") String clothName
 			, @RequestParam("clothPrice") int clothPrice

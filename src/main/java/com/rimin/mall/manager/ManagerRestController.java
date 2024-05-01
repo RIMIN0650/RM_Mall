@@ -24,7 +24,7 @@ public class ManagerRestController {
 	private ManagerService managerService;
 	
 	// 매니저 회원가입
-	@PostMapping("/manager/join")
+	@PostMapping("/admin/join")
 	public Map<String, String> managerJoin(@RequestParam("loginId") String loginId
 											, @RequestParam("password") String password
 											, @RequestParam("managerName") String managerName){
@@ -42,7 +42,7 @@ public class ManagerRestController {
 	}
 	
 	// 로그인 기능
-	@PostMapping("/manager/login")
+	@PostMapping("/admin/login")
 	public Map<String, String> login(
 							@RequestParam("loginId") String loginId
 							, @RequestParam("loginPw") String loginPw
@@ -66,7 +66,7 @@ public class ManagerRestController {
 	}
 
 	// 매니저 아이디 중복확인
-	@GetMapping("/manager/duplicate-id")
+	@GetMapping("/admin/duplicate-id")
 	public Map<String, Boolean> isDuplicateId(@RequestParam("loginId") String loginId){
 		
 		boolean isDuplicateId = managerService.isDuplicateId(loginId);
