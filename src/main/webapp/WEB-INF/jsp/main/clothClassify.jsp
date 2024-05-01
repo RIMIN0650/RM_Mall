@@ -33,9 +33,17 @@
 					<li class="nav-item mt-3 pl-3"><a href="/main/clothes/classify?clothCategory=8" class="text-white">악세서리</a></li>
 				</ul>
 				<br><br><br>
-				<button type="button" class="btn"><a href="/user/save/payment" class="text-white">결제 정보 추가</a></button>
-				<button type="button" class="btn" id="goCart"><a href="/basket/list-view" class="text-white">장바구니</a></button>
-			</nav>
+				<c:choose>
+					<c:when test="${userName eq null }">
+						<button type="button" class="btn"><a href="/user/login" class="text-white">결제 정보 추가</a></button>
+						<button type="button" class="btn" id="goCart"><a href="/user/login" class="text-white">장바구니</a></button>
+					</c:when>
+					<c:otherwise>
+						<button type="button" class="btn"><a href="/user/save/payment" class="text-white">결제 정보 추가</a></button>
+						<button type="button" class="btn" id="goCart"><a href="/basket/list-view" class="text-white">장바구니</a></button>
+					</c:otherwise>
+				</c:choose>
+				</nav>
 			
 			<article class="main-contents ml-3">
 		

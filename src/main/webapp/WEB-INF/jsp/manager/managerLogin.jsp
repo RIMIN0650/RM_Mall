@@ -17,9 +17,11 @@
 				<div class="my-5">
 					<h1>관리자 로그인</h1>
 				</div>
-				<input type="text" class="form-control my-3" placeholder="id" id="logInId">
-				<input type="password" class="form-control mb-3" placeholder="password" id="logInPw">
-				<button type="button" class="btn btn-info btn-lg my-3" id="logInBtn">로그인</button>
+				<form id="loginForm">
+					<input type="text" class="form-control my-3" placeholder="id" id="logInId">
+					<input type="password" class="form-control mb-3" placeholder="password" id="logInPw">
+					<button type="submit" class="btn btn-info btn-lg my-3" id="logInBtn">로그인</button>
+				</form>
 				<hr>
 				<div class="mt-5">
 				<a href="/user/join">회원가입</a>&nbsp;또는&nbsp;<a href="/main/home">메인 페이지로</a>
@@ -42,7 +44,9 @@
 		$(document).ready(function(){
 			
 			
-			$("#logInBtn").on("click",function(){
+			$("#loginForm").on("submit",function(e){
+				
+				e.preventDefault();
 				
 				id = $("#logInId").val();
 				pw = $("#logInPw").val();
@@ -66,7 +70,7 @@
 							location.href="/manager/show/orderList";
 							alert("로그인 성공 관리자 페이지로 이동합니다.");
 						} else {
-							alert("로그인 실패");
+							alert("아이디 또는 비밀번호를 확인하세요.");
 						}
 					}
 					, error:function(){

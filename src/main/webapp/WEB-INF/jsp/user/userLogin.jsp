@@ -21,7 +21,7 @@
 				<form id="loginForm">
 					<input type="text" class="form-control my-3" placeholder="id" id="logInId">
 					<input type="password" class="form-control mb-3" placeholder="password" id="logInPw">
-					<button type="button" class="btn btn-info btn-lg my-3" id="logInBtn">로그인</button>
+					<button type="submit" class="btn btn-info btn-lg my-3" id="logInBtn">로그인</button>
 				</form>
 				<hr>
 				<div class="mt-5">
@@ -45,12 +45,14 @@
 		$(document).ready(function(){
 			
 			
-			$("#loginForm").on("submit", function(e){
+			
+			
+			$("#loginForm").on("submit",function(e){
 				
 				e.preventDefault();
 				
-				let id = $("#LogInId").val();
-				let pw = $("#LogInPw").val();
+				let id = $("#logInId").val();
+				let pw = $("#logInPw").val();
 				
 				if(id == ""){
 					alert("아이디를 입력하세요");
@@ -71,7 +73,7 @@
 							location.href="/main/home";
 							alert("로그인 성공 메인 페이지로 이동합니다");
 						} else {
-							alert("로그인 실패");
+							alert("아이디 또는 비밀번호를 확인하세요.");
 						}
 					}
 					, error:function(){
