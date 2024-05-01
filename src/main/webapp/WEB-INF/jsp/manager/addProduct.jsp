@@ -16,8 +16,8 @@
 	
 	<div id="wrap" class="border border-dark">
 		<div class="my-3 mx-1 d-flex justify-content-between">
-			<button type="button" class="btn btn-outline-info" id="logoutBtn"><a href="/manager/logout" class="text-info">로그아웃</a></button>
-			<button type="button" class="btn btn-outline-info" id="logoutBtn"><a href="/manager/show/orderList" class="text-info">주문 리스트 조회</a></button>
+			<button type="button" class="btn btn-outline-info" id="logoutBtn"><a href="/admin/logout" class="text-info">로그아웃</a></button>
+			<button type="button" class="btn btn-outline-info" id="logoutBtn"><a href="/admin/show/orderList" class="text-info">주문 리스트 조회</a></button>
 		</div>
 		<section class="d-flex">
 			
@@ -178,7 +178,7 @@
 				
 				$.ajax({
 					type:"post"
-					, url:"/manager/add-cloth"
+					, url:"/admin/add-cloth"
 					, data:{"clothName":productName
 						, "clothPrice":clothPrice
 						, "clothCategory":selectCat 

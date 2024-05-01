@@ -20,18 +20,18 @@ public class ManagerController {
 	private ManagerService managerService;
 	
 	// 매니저 회원가입
-	@GetMapping("/manager/join")
+	@GetMapping("/admin/join")
 	public String managerJoin() {
 		return "manager/managerJoin";
 	}
 	
-	@GetMapping("/manager/login")
+	@GetMapping("/admin/login")
 	public String managerLogin() {
 		return "manager/managerLogin";
 	}
 	
 	// user 로그아웃
-	@GetMapping("/manager/logout")
+	@GetMapping("/admin/logout")
 	public String logout(HttpServletRequest request) {
 		// 세션에 저장된 사용자 정보 제거
 		
@@ -44,13 +44,13 @@ public class ManagerController {
 	}
 	
 	// 매니저가 상품 추가
-	@GetMapping("/manager/add-product")
+	@GetMapping("/admin/add-product")
 	public String AddProduct() {
 		return "manager/addProduct";
 	}
 	
 	// 전체 주문 목록 보여주기
-	@GetMapping("/manager/show/orderList")
+	@GetMapping("/admin/show/orderList")
 	public String showOrderList(Model model){
 	
 		List<Order> orderList = managerService.getOrderList();

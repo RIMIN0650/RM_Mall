@@ -63,11 +63,11 @@
 				
 				$.ajax({
 					type:"post"
-					, url:"/manager/login"
+					, url:"/admin/login"
 					, data:{"loginId":id, "loginPw":pw}
 					, success:function(data){
 						if(data.result == "success"){
-							location.href="/manager/show/orderList";
+							location.href="/admin/show/orderList";
 							alert("로그인 성공 관리자 페이지로 이동합니다.");
 						} else {
 							alert("아이디 또는 비밀번호를 확인하세요.");

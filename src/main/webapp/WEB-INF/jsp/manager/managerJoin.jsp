@@ -73,7 +73,7 @@
 			
 			$.ajax({
 				type:"get"
-				, url:"/manager/duplicate-id"
+				, url:"/admin/duplicate-id"
 				, data:{"loginId":id}
 				, success:function(data){
 						isDupCheck = true; // 아이디 중복 확인 여부를 참으로 만들어주기
@@ -129,7 +129,7 @@
 			
 			$.ajax({
 				type:"post"
-				, url:"/manager/join"
+				, url:"/admin/join"
 				, data:{"loginId":id, "password":pw, "managerName":name}
 				, success:function(data){
 					console.log(data);
