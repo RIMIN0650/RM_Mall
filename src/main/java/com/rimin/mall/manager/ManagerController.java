@@ -45,7 +45,7 @@ public class ManagerController {
 	
 	// 매니저가 상품 추가
 	@GetMapping("/admin/add-product")
-	public String AddProduct() {
+	public String addProduct() {
 		return "manager/addProduct";
 	}
 	

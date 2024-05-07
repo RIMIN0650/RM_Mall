@@ -5,7 +5,7 @@
   
 	<header class="d-flex">
 		<div class="logo d-flex justify-content-start align-items-center pl-1">
-			<a href="/main/home" class="text-white"><img src="/static/images/RMmall.png" class="rounded-2 mt-1" height="150"></a>
+			<a href="/main/home" class="text-white"><img src="/static/images/RMmall.png" class="rounded-2 mt-1" height="150" alt="Logo Img"></a>
 		</div>
 		<div class="title">
 			<div class="display-3" style="text-decoration: none;" id="rmMallMark"><a href="/main/home" class="text-dark" >RM Mall</a></div>
