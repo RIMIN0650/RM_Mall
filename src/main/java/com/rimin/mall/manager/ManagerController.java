@@ -30,10 +30,10 @@ public class ManagerController {
 		return "manager/managerLogin";
 	}
 	
-	// user 로그아웃
+	// 관리자 로그아웃
 	@GetMapping("/admin/logout")
 	public String logout(HttpServletRequest request) {
-		// 세션에 저장된 사용자 정보 제거
+		// 세션에 저장된 관리자 정보 제거
 		
 		HttpSession session = request.getSession();
 		
